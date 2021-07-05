@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     setFixedSize(MainWindowWidth, MainWindowHeight);
-    setWindowTitle(QString("Astriver鼠标连点器（测试版）"));
+    setWindowTitle(QString("鼠标连点器（测试版）"));
     setWindowOpacity(MainWindowOpacity);
     setWindowIcon(QIcon(":/icon/logo.png"));
 
