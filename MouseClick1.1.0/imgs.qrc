@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file>logo.png</file>
+    </qresource>
+    <qresource prefix="/imgs">
+        <file>qrcode.png</file>
+        <file>mainBackground.png</file>
+    </qresource>
+    <qresource prefix="/QPushButton">
+        <file>newCreate.png</file>
+        <file>newCreate_hover.png</file>
+        <file>oldRecord.png</file>
+        <file>oldRecord_hover.png</file>
+        <file>newCreate_pressed.png</file>
+        <file>oldRecord_pressed.png</file>
+    </qresource>
+    <qresource prefix="/QComboBox">
+        <file>arrow-down.png</file>
+        <file>arrow-up.png</file>
+        <file>arrow-down-disabled.png</file>
+    </qresource>
+    <qresource prefix="/QDoubleSpinBox">
+        <file>arrow-left.png</file>
+        <file>arrow-left-disabled.png</file>
+        <file>arrow-right.png</file>
+        <file>arrow-right-disabled.png</file>
+    </qresource>
+    <qresource prefix="/QScrollBar">
+        <file>scrollbar-down.png</file>
+        <file>scrollbar-up.png</file>
+    </qresource>
+</RCC>
