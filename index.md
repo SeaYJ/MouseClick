@@ -4,9 +4,9 @@
 
 ### 产品下载
 
-#### [MouseClick.7z 1.1.0](https://github.com/SeaYJ/MouseClick/releases/download/1.1.0/MouseClick.7z)
+[MouseClick.7z 1.1.0](https://github.com/SeaYJ/MouseClick/releases/download/1.1.0/MouseClick.7z)
 
-#### [MouseClick.zip 1.1.0](https://github.com/SeaYJ/MouseClick/archive/refs/tags/1.1.0.zip)
+[MouseClick.zip 1.1.0](https://github.com/SeaYJ/MouseClick/archive/refs/tags/1.1.0.zip)
 
 ### 产品介绍
 
