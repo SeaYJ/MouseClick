@@ -1,3 +1,5 @@
+<base target="_blank" />
+
 ## 欢迎使用 [MouseClick](https://github.com/SeaYJ/MouseClick/releases/download/1.1.0/MouseClick.7z) 鼠标连点器
 
 ### 产品下载
