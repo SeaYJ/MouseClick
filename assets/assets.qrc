@@ -1,0 +1,46 @@
+<RCC>
+    <qresource prefix="/">
+        <file>fonts/SmileySans/SmileySans-Oblique.ttf</file>
+        <file>svg/close.svg</file>
+        <file>svg/maximize.svg</file>
+        <file>svg/minimize.svg</file>
+        <file>svg/restore.svg</file>
+        <file>qss/light-style.qss</file>
+        <file>imgs/favicon_16x.png</file>
+        <file>imgs/favicon_64x.png</file>
+        <file>imgs/favicon_128x.png</file>
+        <file>imgs/favicon_16x.ico</file>
+        <file>imgs/favicon_64x.ico</file>
+        <file>imgs/favicon_128x.ico</file>
+        <file>svg/favicon.svg</file>
+        <file>qss/dark-style.qss</file>
+        <file>svg/close-white.svg</file>
+        <file>svg/maximize-blue.svg</file>
+        <file>svg/minimize-blue.svg</file>
+        <file>svg/restore-blue.svg</file>
+        <file>svg/mouse-click-item.svg</file>
+        <file>svg/mouse-macro-item.svg</file>
+        <file>svg/mouse-recording-item.svg</file>
+        <file>svg/mouse-click-item-hover.svg</file>
+        <file>svg/mouse-click-item-pressed.svg</file>
+        <file>svg/mouse-click-item-selected.svg</file>
+        <file>svg/mouse-macro-item-hover.svg</file>
+        <file>svg/mouse-macro-item-pressed.svg</file>
+        <file>svg/mouse-macro-item-selected.svg</file>
+        <file>svg/mouse-recording-item-hover.svg</file>
+        <file>svg/mouse-recording-item-pressed.svg</file>
+        <file>svg/mouse-recording-item-selected.svg</file>
+        <file>qss/modules/light-mouseclickpage.qss</file>
+        <file>qss/modules/dark-mouseclickpage.qss</file>
+        <file>svg/MingcuteDownLine.svg</file>
+        <file>svg/MingcuteUpLine.svg</file>
+        <file>svg/MingcuteDownLine-pressed.svg</file>
+        <file>svg/MingcuteUpLine-pressed.svg</file>
+        <file>svg/MingcuteDownLine-disabled.svg</file>
+        <file>svg/MingcuteUpLine-disabled.svg</file>
+        <file>svg/MingcuteToggleLeftLine.svg</file>
+        <file>svg/MingcuteToggleRightFill.svg</file>
+        <file>svg/MingcuteToggleLeftLine-disabled.svg</file>
+        <file>svg/MingcuteToggleRightFill-disabled.svg</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,53 @@
+#mainwindow
+{
+    background-color: #3c3c3c;
+}
+
+#titlebar-label,
+#titlebar-icon-button,
+#titlebar-min-button,
+#titlebar-max-button,
+#titlebar-close-button
+{
+    border: none;
+    background-color: transparent;
+}
+
+#titlebar-label
+{
+    font-size: 14px;
+}
+
+#titlebar-label,
+#titlebar-icon-button
+{
+    height: 32px;
+}
+
+#titlebar-icon-button
+{
+    width: 32px;
+    icon-size: 18px;
+}
+
+#titlebar-min-button,
+#titlebar-max-button,
+#titlebar-close-button
+{
+    margin: 2px;
+    width: 32px;
+    height: 30px;
+    icon-size: 16px;
+    border-radius: 2px;
+}
+
+#titlebar-min-button:hover,
+#titlebar-max-button:hover
+{
+    background-color: #565656;
+}
+#titlebar-close-button:hover
+{
+    icon: url(:/svg/close-white.svg);
+    background-color: #e53c3c;
+}

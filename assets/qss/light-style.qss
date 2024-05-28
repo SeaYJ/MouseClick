@@ -1,0 +1,174 @@
+#mainwindow {
+    background-color: #eeeef2;
+}
+
+#titlebar-label,
+#titlebar-icon-button,
+#titlebar-min-button,
+#titlebar-max-button,
+#titlebar-close-button {
+    border: none;
+    background-color: transparent;
+}
+
+#titlebar-label {
+    font-size: 14px;
+}
+
+#titlebar-label,
+#titlebar-icon-button {
+    height: 32px;
+}
+
+#titlebar-icon-button {
+    width: 32px;
+    icon-size: 18px;
+}
+
+#titlebar-min-button,
+#titlebar-max-button,
+#titlebar-close-button {
+    margin: 2px;
+    width: 32px;
+    height: 30px;
+    icon-size: 16px;
+    border-radius: 2px;
+}
+
+#titlebar-min-button {
+    icon: url(:/svg/minimize.svg);
+}
+
+#titlebar-max-button {
+    icon: url(:/svg/maximize.svg);
+}
+
+#titlebar-max-button:checked {
+    icon: url(:/svg/restore.svg);
+}
+
+#titlebar-close-button {
+    icon: url(:/svg/close.svg);
+}
+
+#titlebar-min-button:hover,
+#titlebar-max-button:hover {
+    background-color: #fcfcfd;
+}
+
+#titlebar-min-button:hover {
+    icon: url(:/svg/minimize-blue.svg);
+}
+
+#titlebar-max-button:hover {
+    icon: url(:/svg/maximize-blue.svg);
+}
+
+#titlebar-max-button:checked:hover {
+    icon: url(:/svg/restore-blue.svg);
+}
+
+#titlebar-close-button:hover {
+    icon: url(:/svg/close-white.svg);
+    background-color: #e53c3c;
+}
+
+#central-widget {
+    background-color: transparent;
+}
+
+/********************/
+
+#side-nav,
+#side-nav::item {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+#side-nav {
+    padding: 4px;
+}
+
+#side-nav::item QPushButton {
+    text-align: left;
+    font-size: 14px;
+    color: #1e1e1e;
+    outline: none;
+    height: 32px;
+    padding-left: 12px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-radius: 4px;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+}
+
+#side-nav::item QPushButton:hover {
+    color: #f6f6f6;
+    border-bottom: 2px solid #3aa1f5;
+    background-color: #6cb8f7;
+}
+
+#side-nav::item QPushButton:pressed {
+    color: #fafafa;
+    border-bottom: 2px solid #6cb8f7;
+    background-color: #6cb8f7;
+}
+
+#side-nav::item QPushButton:checked {
+    color: #ffffff;
+    border-bottom: 2px solid #0a86f1;
+    background-color: #3aa1f5;
+}
+
+#side-nav::item QPushButton:checked:pressed {
+    color: #fafafa;
+    border-bottom: 2px solid #3aa1f5;
+    background-color: #3aa1f5;
+}
+
+#nav-item-mouse-click:hover {
+    icon: url(:/svg/mouse-click-item-hover.svg);
+}
+#nav-item-mouse-recording:hover {
+    icon: url(:/svg/mouse-recording-item-hover.svg);
+}
+#nav-item-mouse-macro:hover {
+    icon: url(:/svg/mouse-macro-item-hover.svg);
+}
+
+#nav-item-mouse-click:pressed,
+#nav-item-mouse-click:checked:pressed {
+    icon: url(:/svg/mouse-click-item-pressed.svg);
+}
+#nav-item-mouse-recording:pressed,
+#nav-item-mouse-recording:checked:pressed {
+    icon: url(:/svg/mouse-recording-item-pressed.svg);
+}
+#nav-item-mouse-macro:pressed,
+#nav-item-mouse-macro:checked:pressed {
+    icon: url(:/svg/mouse-macro-item-pressed.svg);
+}
+
+#nav-item-mouse-click:checked {
+    icon: url(:/svg/mouse-click-item-selected.svg);
+}
+#nav-item-mouse-recording:checked {
+    icon: url(:/svg/mouse-recording-item-selected.svg);
+}
+#nav-item-mouse-macro:checked {
+    icon: url(:/svg/mouse-macro-item-selected.svg);
+}
+
+/********************/
+
+#nav-page {
+    margin-left: 8px;
+    margin-top: 4px;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
