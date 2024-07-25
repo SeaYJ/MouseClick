@@ -12,21 +12,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 
-find_package(QWindowKit REQUIRED)
+set(QWINDOWKIT_ROOT "${CMAKE_SOURCE_DIR}/deps/qwindowkit")
+find_package(QWindowKit REQUIRED PATH "${QWINDOWKIT_ROOT}/lib/cmake/QWindowKit")
 
 set(QHOTKEY_ROOT "${CMAKE_SOURCE_DIR}/deps/qhotkey")
-find_package(QHotkey REQUIRED PATHS ${QHOTKEY_ROOT}/lib/cmake/QHotkey)
+find_package(QHotkey REQUIRED PATHS "${QHOTKEY_ROOT}/lib/cmake/QHotkey")
 
-set(QWK_WINDOWTITLEBAR_FILES
-        src/modules/qwk_windowtitlebar/windowbar.cpp
-        src/modules/qwk_windowtitlebar/windowbar.h
-        src/modules/qwk_windowtitlebar/windowbar_p.h
-        src/modules/qwk_windowtitlebar/windowbutton.cpp
-        src/modules/qwk_windowtitlebar/windowbutton.h
-        src/modules/qwk_windowtitlebar/windowbutton_p.h
+set(QWK_WINDOWBAR_FILES
+    src/qwk_window_bar/windowbar.h      src/qwk_window_bar/windowbar.cpp
+    src/qwk_window_bar/windowbutton.h   src/qwk_window_bar/windowbutton.cpp
+    src/qwk_window_bar/private/windowbar_p.h
+    src/qwk_window_bar/private/windowbutton_p.h
 )
 
-set(TS_FILES i18n/MouseClick_zh_CN.ts)
+set(TRANSLATIONS_FILES i18n/MouseClick_zh_CN.ts)
+
 set(QRC_FILES assets/assets.qrc)
 
 set(PROJECT_SOURCES
@@ -37,8 +37,8 @@ set(PROJECT_SOURCES
         src/modules/styleagent.h                src/modules/styleagent.cpp
         src/modules/hotkeylineedit.h            src/modules/hotkeylineedit.cpp
         src/utils/clicker.h                     src/utils/clicker.cpp
-        ${QWK_WINDOWTITLEBAR_FILES}
-        ${TS_FILES}
+        ${QWK_WINDOWBAR_FILES}
+        ${TRANSLATIONS_FILES}
         ${QRC_FILES}
 )
 
@@ -52,7 +52,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 
-    qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
+    # qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TRANSLATIONS_FILES})
+    qt_add_translations(MouseClick TS_FILES ${TRANSLATIONS_FILES})
 else()
     if(ANDROID)
         add_library(MouseClick SHARED
@@ -66,11 +67,12 @@ else()
         )
     endif()
 
-    qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
+    qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TRANSLATIONS_FILES})
 endif()
 
 target_link_libraries(MouseClick PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
+target_include_directories(MouseClick PRIVATE "${QWINDOWKIT_ROOT}/include/QWindowKit::Widgets")
 target_link_libraries(MouseClick PRIVATE QWindowKit::Widgets)
 
 target_include_directories(MouseClick PRIVATE ${QHOTKEY_ROOT}/include)

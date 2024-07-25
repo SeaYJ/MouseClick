@@ -1,7 +1,13 @@
 #include "hotkeylineedit.h"
 
+#include <QWidget>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QKeySequence>
+#include <QKeyEvent>
+#include <QMouseEvent>
+#include <QFocusEvent>
+#include <QHotkey>
 
 HotkeyLineEdit::HotkeyLineEdit(QWidget* parent)
     : QLineEdit{parent},
@@ -19,6 +25,12 @@ HotkeyLineEdit::~HotkeyLineEdit()
     delete _hotkey;
 }
 
+void HotkeyLineEdit::cleanHotKey()
+{
+    clear();
+    unregisterGlobalHotkey();
+}
+
 void HotkeyLineEdit::mousePressEvent(QMouseEvent* event)
 {
     if (!hasFocus()) {
@@ -30,8 +42,7 @@ void HotkeyLineEdit::mousePressEvent(QMouseEvent* event)
 void HotkeyLineEdit::focusInEvent(QFocusEvent* event)
 {
     // 清空之前的内容
-    clear();
-    unregisterGlobalHotkey();
+    cleanHotKey();
     // 设置焦点时监听键盘事件
     grabKeyboard();
     QLineEdit::focusInEvent(event);

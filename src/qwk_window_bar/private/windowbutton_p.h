@@ -5,7 +5,7 @@
 #ifndef WINDOWBUTTONPRIVATE_H
 #define WINDOWBUTTONPRIVATE_H
 
-#include "windowbutton.h"
+#include "../windowbutton.h"
 
 namespace QWK {
 

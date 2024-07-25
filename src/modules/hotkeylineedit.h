@@ -2,11 +2,12 @@
 #define HOTKEYLINEEDIT_H
 
 #include <QLineEdit>
-#include <QWidget>
-#include <QKeyEvent>
-#include <QKeySequence>
-#include <QMouseEvent>
-#include <QHotkey>
+
+class QWidget;
+class QKeyEvent;
+class QMouseEvent;
+class QFocusEvent;
+class QHotkey;
 
 class HotkeyLineEdit : public QLineEdit
 {
@@ -14,6 +15,8 @@ class HotkeyLineEdit : public QLineEdit
 public:
     explicit HotkeyLineEdit(QWidget* parent = nullptr);
     ~HotkeyLineEdit();
+
+    void cleanHotKey();
 
 Q_SIGNALS:
     void hotkeyActivated();

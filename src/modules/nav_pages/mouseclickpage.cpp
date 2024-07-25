@@ -74,11 +74,11 @@ MouseClickPage::MouseClickPage(const QString& title, QWidget* parent)
 
     /********************/
 
-    QPushButton* hotkey_conflict_check = new QPushButton(page_content);
-    hotkey_conflict_check->setObjectName(QStringLiteral("hotkey-conflict-check-btn"));
-    hotkey_conflict_check->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    hotkey_conflict_check->setFixedHeight(pageContentUniformHeight);
-    hotkey_conflict_check->setText(tr("Hotkey Conflict Check(Unrealized)"));
+    QPushButton* hotkey_clean = new QPushButton(page_content);
+    hotkey_clean->setObjectName(QStringLiteral("hotkey-clean-btn"));
+    hotkey_clean->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    hotkey_clean->setFixedHeight(pageContentUniformHeight);
+    hotkey_clean->setText(tr("Hotkey Clean"));
 
     /********************/
 
@@ -193,7 +193,7 @@ MouseClickPage::MouseClickPage(const QString& title, QWidget* parent)
     /********************/
 
     page_content_layout->addWidget(hotkey_content);
-    page_content_layout->addWidget(hotkey_conflict_check);
+    page_content_layout->addWidget(hotkey_clean);
     page_content_layout->addWidget(click_type_content);
     page_content_layout->addWidget(interval_time_content);
     page_content_layout->addWidget(random_interval_toggle_content);
@@ -207,8 +207,9 @@ MouseClickPage::MouseClickPage(const QString& title, QWidget* parent)
 
     /********************/
 
-    connect(random_interval_toggle_btn, &QRadioButton::toggled, random_interval_time, [random_interval_time](bool checked) {
+    connect(random_interval_toggle_btn, &QRadioButton::toggled, random_interval_time,[random_interval_time, interval_time](bool checked) {
         random_interval_time->setEnabled(checked);
+        interval_time->setEnabled(!checked);
     });
 
     // Thread initialization
@@ -223,9 +224,9 @@ MouseClickPage::MouseClickPage(const QString& title, QWidget* parent)
             _clicker_thread->wait();// 这里有问题
 
             hotkey_reader->setEnabled(true);
-            hotkey_conflict_check->setEnabled(true);
+            hotkey_clean->setEnabled(true);
             click_type_list->setEnabled(true);
-            interval_time->setEnabled(true);
+            interval_time->setEnabled(!random_interval_toggle_btn->isChecked());
             random_interval_toggle_btn->setEnabled(true);
             random_interval_time->setEnabled(random_interval_toggle_btn->isChecked());
         } else {
@@ -248,12 +249,16 @@ MouseClickPage::MouseClickPage(const QString& title, QWidget* parent)
             _clicker_thread->start();   // Note: This should be initiated through a sub-thread.
 
             hotkey_reader->setEnabled(false);
-            hotkey_conflict_check->setEnabled(false);
+            hotkey_clean->setEnabled(false);
             click_type_list->setEnabled(false);
             interval_time->setEnabled(false);
             random_interval_toggle_btn->setEnabled(false);
             random_interval_time->setEnabled(false);
         }
+    });
+
+    connect(hotkey_clean, &QPushButton::clicked, this, [hotkey_reader]() {
+        hotkey_reader->cleanHotKey();
     });
 }
 

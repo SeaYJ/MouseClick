@@ -70,6 +70,19 @@ void Clicker::start()
 void Clicker::stop()
 {
     _run = false;
+
+    _sleep_timer.wakeAll();
+}
+
+void Clicker::msleep(int ms)
+{
+    _interrupt_sleep_immediately.lock();
+
+    if (_run) {
+        _sleep_timer.wait(&_interrupt_sleep_immediately, ms);
+    }
+
+    _interrupt_sleep_immediately.unlock();
 }
 
 #if defined(Q_OS_WIN)
@@ -80,7 +93,7 @@ void Clicker::leftClick()
     while (_run) {
         GetCursorPos(&mouse_pos);
         mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, mouse_pos.x, mouse_pos.y, 0, 0);
-        QThread::msleep(_interval);
+        msleep(_interval);
     }
 }
 
@@ -91,7 +104,7 @@ void Clicker::rightClick()
     while (_run) {
         GetCursorPos(&mouse_pos);
         mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, mouse_pos.x, mouse_pos.y, 0, 0);
-        QThread::msleep(_interval);
+        msleep(_interval);
     }
 }
 
@@ -102,7 +115,7 @@ void Clicker::middleClick()
     while (_run) {
         GetCursorPos(&mouse_pos);
         mouse_event(MOUSEEVENTF_MIDDLEDOWN | MOUSEEVENTF_MIDDLEUP, mouse_pos.x, mouse_pos.y, 0, 0);
-        QThread::msleep(_interval);
+        msleep(_interval);
     }
 }
 
@@ -113,7 +126,7 @@ void Clicker::leftRandomClick()
     while (_run) {
         GetCursorPos(&mouse_pos);
         mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, mouse_pos.x, mouse_pos.y, 0, 0);
-        QThread::msleep(QRandomGenerator::global()->bounded(0, _max_random_interval));
+        msleep(QRandomGenerator::global()->bounded(0, _max_random_interval));
     }
 }
 
@@ -124,7 +137,7 @@ void Clicker::rightRandomClick()
     while (_run) {
         GetCursorPos(&mouse_pos);
         mouse_event(MOUSEEVENTF_RIGHTDOWN | MOUSEEVENTF_RIGHTUP, mouse_pos.x, mouse_pos.y, 0, 0);
-        QThread::msleep(QRandomGenerator::global()->bounded(0, _max_random_interval));
+        msleep(QRandomGenerator::global()->bounded(0, _max_random_interval));
     }
 }
 
@@ -135,7 +148,7 @@ void Clicker::middleRandomClick()
     while (_run) {
         GetCursorPos(&mouse_pos);
         mouse_event(MOUSEEVENTF_MIDDLEDOWN | MOUSEEVENTF_MIDDLEUP, mouse_pos.x, mouse_pos.y, 0, 0);
-        QThread::msleep(QRandomGenerator::global()->bounded(0, _max_random_interval));
+        msleep(QRandomGenerator::global()->bounded(0, _max_random_interval));
     }
 }
 #endif

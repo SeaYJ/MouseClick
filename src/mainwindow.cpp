@@ -16,10 +16,10 @@
 #include <QTreeWidget>
 
 #include <QWKWidgets/widgetwindowagent.h>
+#include "qwk_window_bar/windowbar.h"
+#include "qwk_window_bar/windowbutton.h"
 
 #include "modules/nav_pages/mouseclickpage.h"
-#include "modules/qwk_windowtitlebar/windowbar.h"
-#include "modules/qwk_windowtitlebar/windowbutton.h"
 
 QMap<Theme::ThemeMode, QString> MainWindow::_theme_files {
     {Theme::Light, (":/qss/light-style.qss")},
@@ -277,7 +277,7 @@ void MainWindow::UIWidgetInit()
     central_layout->addWidget(navigation);
     central_layout->addWidget(navigation_pages);
 
-    connect(navigation, &QTreeWidget::currentItemChanged, [=](QTreeWidgetItem *current, QTreeWidgetItem *previous) {
+    connect(navigation, &QTreeWidget::currentItemChanged, this, [=](QTreeWidgetItem *current, QTreeWidgetItem *previous) {
         if (current == mouse_click_item) {
             mouse_click->setChecked(true);
             navigation_pages->setCurrentIndex(0);

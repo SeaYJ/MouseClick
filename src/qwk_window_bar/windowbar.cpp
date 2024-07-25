@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 #include "windowbar.h"
-#include "windowbar_p.h"
+#include "private/windowbar_p.h"
 
 #include <QtCore/QDebug>
 #include <QtCore/QLocale>

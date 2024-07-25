@@ -1,8 +1,9 @@
 #ifndef CLICKER_H
 #define CLICKER_H
 
+#include <QMutex>
 #include <QObject>
-#include <QDebug>
+#include <QWaitCondition>
 
 class Clicker : public QObject
 {
@@ -25,6 +26,10 @@ private:
     int _interval;
     bool _random_interval_flag;
     int _max_random_interval;
+
+    QMutex _interrupt_sleep_immediately;
+    QWaitCondition _sleep_timer;
+    void msleep(int ms);
 
     void leftClick();
     void rightClick();
