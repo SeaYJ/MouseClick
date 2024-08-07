@@ -1,4 +1,4 @@
-#mainwindow {
+MainWindow {
     background-color: #eeeef2;
 }
 
@@ -108,26 +108,20 @@
 
 #side-nav::item QPushButton:hover {
     color: #f6f6f6;
-    border-bottom: 2px solid #3aa1f5;
-    background-color: #6cb8f7;
-}
-
-#side-nav::item QPushButton:pressed {
-    color: #fafafa;
-    border-bottom: 2px solid #6cb8f7;
-    background-color: #6cb8f7;
+    border-bottom: 2px solid #2987D5;
+    background-color: #4DAAF7;
 }
 
 #side-nav::item QPushButton:checked {
     color: #ffffff;
-    border-bottom: 2px solid #0a86f1;
-    background-color: #3aa1f5;
+    border-bottom: 2px solid #2987D5;
+    background-color: #3AA0F5;
 }
 
 #side-nav::item QPushButton:checked:pressed {
     color: #fafafa;
-    border-bottom: 2px solid #3aa1f5;
-    background-color: #3aa1f5;
+    border-bottom: 2px solid #5CB0F7;
+    background-color: #5CB0F7;
 }
 
 #nav-item-mouse-click:hover {
@@ -172,3 +166,7 @@
     border-radius: 8px;
     background-color: #ffffff;
 }
+
+/********************/
+
+

@@ -10,9 +10,6 @@ namespace QWK
     class WidgetWindowAgent;
 }
 
-class MainWindow;
-class QMainWindow;
-class QWidget;
 template <class Key, class T> class QMap;
 
 class MainWindow : public QMainWindow

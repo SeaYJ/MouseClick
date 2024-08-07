@@ -36,6 +36,7 @@ set(PROJECT_SOURCES
         src/modules/shared.h                    src/modules/shared.cpp
         src/modules/styleagent.h                src/modules/styleagent.cpp
         src/modules/hotkeylineedit.h            src/modules/hotkeylineedit.cpp
+        src/modules/messagebox.h                src/modules/messagebox.cpp
         src/utils/clicker.h                     src/utils/clicker.cpp
         ${QWK_WINDOWBAR_FILES}
         ${TRANSLATIONS_FILES}

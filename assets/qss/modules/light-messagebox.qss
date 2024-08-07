@@ -1,0 +1,41 @@
+QMessageBox {
+    background-color: #ffffff;
+    border-bottom: 50px solid #eeeef2;
+}
+
+QMessageBox QLabel#qt_msgbox_label { /* textLabel */
+    background-color: transparent;
+    min-height: 40px; /* textLabel和iconLabel高度保持一致 */
+}
+
+QMessageBox QLabel#qt_msgboxex_icon_label { /* iconLabel */
+    width: 40px;
+    min-height: 40px; /* textLabel和iconLabel高度保持一致 */
+}
+
+QMessageBox QPushButton {
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    outline: none;
+    border-radius: 4px;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 2px solid #2987D5;
+    background-color: #3AA0F5;
+    min-width: 70px;
+    min-height: 25px;
+}
+
+QMessageBox QPushButton:hover {
+    color: #f6f6f6;
+    border-bottom: 2px solid #2987D5;
+    background-color: #4DAAF7;
+}
+
+QMessageBox QPushButton:pressed {
+    color: #fafafa;
+    border-bottom: 2px solid #5CB0F7;
+    background-color: #5CB0F7;
+}

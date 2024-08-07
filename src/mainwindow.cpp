@@ -19,6 +19,7 @@
 #include "qwk_window_bar/windowbar.h"
 #include "qwk_window_bar/windowbutton.h"
 
+#include "modules/messagebox.h"
 #include "modules/nav_pages/mouseclickpage.h"
 
 QMap<Theme::ThemeMode, QString> MainWindow::_theme_files {
@@ -176,19 +177,24 @@ void MainWindow::loadSettings()
     QString settings_file_path = QCoreApplication::applicationDirPath() + "/config.ini";
     QFile settings_file(settings_file_path);
     if (!settings_file.exists()) {
-        QMessageBox file_missing_msg;
+        MessageBox file_missing_msg;
+        file_missing_msg.setWindowIcon(QIcon(":/svg/favicon.svg"));
         file_missing_msg.setIcon(QMessageBox::Warning);
         file_missing_msg.setText(tr("WARNING"));
         file_missing_msg.setInformativeText(tr("The configuration file 'condig.ini' was not found. The program may have been modified. It is recommended to reinstall the program, which may resolve this issue."));
-        file_missing_msg.setStandardButtons(QMessageBox::Ignore);
-        file_missing_msg.setDefaultButton(QMessageBox::Ignore);
 
+        QPushButton* ignore_btn = file_missing_msg.addButton(tr("Ignore"), QMessageBox::NoRole);
         QPushButton* reinstall_btn = file_missing_msg.addButton(tr("Reinstall"), QMessageBox::YesRole);
+        file_missing_msg.setDefaultButton(ignore_btn);
 
         file_missing_msg.exec();
 
         if (file_missing_msg.clickedButton() == reinstall_btn) {
             QDesktopServices::openUrl(QUrl("https://seayj.github.io/MouseClick/"));
+        } else if (file_missing_msg.clickedButton() == ignore_btn) {
+            // nothing to do
+        } else {
+            // nothing to do
         }
     }
 

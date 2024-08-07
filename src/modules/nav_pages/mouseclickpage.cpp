@@ -99,9 +99,9 @@ MouseClickPage::MouseClickPage(const QString& title, QWidget* parent)
     QComboBox* click_type_list = new QComboBox(click_type_content);
     click_type_list->setObjectName(QStringLiteral("click-type-list"));
     click_type_list->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    click_type_list->addItem(tr("Left Mouse Button"));
-    click_type_list->addItem(tr("Right Mouse Button"));
-    click_type_list->addItem(tr("Middle Mouse Button"));
+    click_type_list->addItem(QIcon(":/svg/mouse-left.svg"), tr("Left Mouse Button"));
+    click_type_list->addItem(QIcon(":/svg/mouse-right.svg"), tr("Right Mouse Button"));
+    click_type_list->addItem(QIcon(":/svg/mouse-middle.svg"), tr("Middle Mouse Button"));
 
     click_type_content_layout->addWidget(click_type_desc);
     click_type_content_layout->addWidget(click_type_list);

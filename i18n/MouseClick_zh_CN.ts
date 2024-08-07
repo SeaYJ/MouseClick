@@ -27,37 +27,42 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="79"/>
+        <location filename="../src/mainwindow.cpp" line="80"/>
         <source>MouseClick</source>
         <translation>鼠标连点器</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="181"/>
+        <location filename="../src/mainwindow.cpp" line="183"/>
         <source>WARNING</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="182"/>
+        <location filename="../src/mainwindow.cpp" line="184"/>
         <source>The configuration file &apos;condig.ini&apos; was not found. The program may have been modified. It is recommended to reinstall the program, which may resolve this issue.</source>
         <translation>配置文件“condig.ini”未找到。程序可能已被修改。建议重新安装程序，这可能解决此问题。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="186"/>
+        <source>Ignore</source>
+        <translation>忽略</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="187"/>
         <source>Reinstall</source>
         <translation>重新安装</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="237"/>
+        <location filename="../src/mainwindow.cpp" line="243"/>
         <source>Mouse Click</source>
         <translation>鼠标连点</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="238"/>
+        <location filename="../src/mainwindow.cpp" line="244"/>
         <source>Mouse Record</source>
         <translation>鼠标录制</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="239"/>
+        <location filename="../src/mainwindow.cpp" line="245"/>
         <source>Mouse Macro</source>
         <translation>鼠标宏</translation>
     </message>

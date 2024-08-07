@@ -42,5 +42,10 @@
         <file>svg/MingcuteToggleRightFill.svg</file>
         <file>svg/MingcuteToggleLeftLine-disabled.svg</file>
         <file>svg/MingcuteToggleRightFill-disabled.svg</file>
+        <file>svg/mouse-middle.svg</file>
+        <file>svg/mouse-right.svg</file>
+        <file>svg/mouse-left.svg</file>
+        <file>qss/modules/dark-messagebox.qss</file>
+        <file>qss/modules/light-messagebox.qss</file>
     </qresource>
 </RCC>

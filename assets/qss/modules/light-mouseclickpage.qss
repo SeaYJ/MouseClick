@@ -27,19 +27,25 @@
     border-left: none;
     border-top: none;
     border-right: none;
-    border-bottom: 2px solid #3aa1f5;
-    background-color: #6cb8f7;
+    border-bottom: 2px solid #2987D5;
+    background-color: #3AA0F5;
+}
+
+#page-content QPushButton:hover {
+    color: #f6f6f6;
+    border-bottom: 2px solid #2987D5;
+    background-color: #4DAAF7;
 }
 
 #page-content QPushButton:pressed {
     color: #fafafa;
-    border-bottom-color: #6cb8f7;
-    background-color: #6cb8f7;
+    border-bottom: 2px solid #5CB0F7;
+    background-color: #5CB0F7;
 }
 
 #page-content QPushButton:disabled {
-    border-bottom-color: #95cbf5;
-    background-color: #9bd2ff;
+    border-bottom-color: #95CBF5;
+    background-color: #9BD2FF;
 }
 
 #page-content QLineEdit,
