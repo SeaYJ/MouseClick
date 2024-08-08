@@ -3,7 +3,6 @@
 *.lo
 *.o
 *.a
-!deps/**/*.a
 *.la
 *.lai
 *.so
@@ -54,3 +53,7 @@ compile_commands.json
 *creator.user*
 
 *_qmlcache.qrc
+
+# 排除 deps 目录及其子目录
+!deps/
+!deps/**
