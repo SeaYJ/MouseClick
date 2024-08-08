@@ -3,6 +3,7 @@
 *.lo
 *.o
 *.a
+!deps/**/*.a
 *.la
 *.lai
 *.so
