@@ -52,12 +52,12 @@
         <translation>重新安装</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="243"/>
+        <location filename="../src/mainwindow.cpp" line="242"/>
         <source>Mouse Click</source>
         <translation>鼠标连点</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="244"/>
+        <location filename="../src/mainwindow.cpp" line="243"/>
         <source>Settings</source>
         <translation>软件设置</translation>
     </message>
@@ -81,37 +81,37 @@
         <translation type="vanished">清除快捷键</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="63"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="61"/>
         <source>Click Type</source>
         <translation>点击类型</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="68"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="66"/>
         <source>Left Mouse Button</source>
         <translation>鼠标左键</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="69"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="67"/>
         <source>Right Mouse Button</source>
         <translation>鼠标右键</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="70"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="68"/>
         <source>Middle Mouse Button</source>
         <translation>鼠标中键</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="90"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="88"/>
         <source>Interval Time</source>
         <translation>间隔时间</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="119"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="117"/>
         <source>Random Start Interval</source>
         <translation>随机间隔时间</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="144"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="142"/>
         <source>Set Max Random Interval</source>
         <translation>最大随机时间</translation>
     </message>

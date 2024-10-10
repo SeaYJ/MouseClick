@@ -7,8 +7,19 @@
 第二代更新了，使用 Qt6 Widget 对项目进行了完全重构，相较于之前的代码，这次的代码质量有明显提升。并且，这次真正的实现了一个相对于优美的 UI 界面，风格偏向于 [**Fluent2 Design**](https://fluent2.microsoft.design/) 那一套，但是也有不同。
 
 下面是软件运行截图：
+
+## 简体中文
+
 ![软件运行截图](./docs/screenshots/SeaEpoch_2024-10-10_15-56-05.jpg)
 ![软件运行截图](./docs/screenshots/SeaEpoch_2024-10-10_16-04-27.jpg)
+
+## 繁体中文
+
+![软件运行截图](./docs/screenshots/SeaEpoch_2024-10-10_17-41-01.jpg)
+
+## English
+
+![软件运行截图](./docs/screenshots/SeaEpoch_2024-10-10_17-42-32.jpg)
 
 # 📋 项目计划
 
@@ -23,7 +34,7 @@
   - [x] 国际化(多语言支持)
     - [x] 简体中文
     - [x] English
-    - [ ] 繁体中文
+    - [x] 繁体中文
 
 # ⚙ 环境要求
 

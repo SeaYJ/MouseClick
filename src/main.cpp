@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
     }
 
     // 设置字体
-    int font_id = QFontDatabase::addApplicationFont(":/fonts/SmileySans/SmileySans-Oblique.ttf");
+    int font_id = QFontDatabase::addApplicationFont(":/fonts/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_Regular.ttf");
     if (font_id != -1) {
         QStringList font_families = QFontDatabase::applicationFontFamilies(font_id);
         if (!font_families.empty()) {

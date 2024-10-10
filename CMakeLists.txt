@@ -25,16 +25,20 @@ set(QWK_WINDOWBAR_FILES
     src/qwk_window_bar/private/windowbutton_p.h
 )
 
-set(TRANSLATIONS_FILES i18n/MouseClick_zh_CN.ts)
+set(TRANSLATIONS_FILES
+    i18n/MouseClick_zh_CN.ts
+    i18n/MouseClick_zh_TW.ts
+    i18n/MouseClick_en_US.ts
+)
 
 set(QRC_FILES assets/assets.qrc)
 
 set(PROJECT_SOURCES
         src/main.cpp
         src/mainwindow.h                        src/mainwindow.cpp
-        src/modules/nav_pages/navpage.h src/modules/nav_pages/navpage.cpp
+        src/modules/nav_pages/navpage.h         src/modules/nav_pages/navpage.cpp
         src/modules/nav_pages/mouseclickpage.h  src/modules/nav_pages/mouseclickpage.cpp
-        src/modules/nav_pages/settingspage.h src/modules/nav_pages/settingspage.cpp
+        src/modules/nav_pages/settingspage.h    src/modules/nav_pages/settingspage.cpp
         src/modules/shared.h                    src/modules/shared.cpp
         src/modules/styleagent.h                src/modules/styleagent.cpp
         src/modules/hotkeylineedit.h            src/modules/hotkeylineedit.cpp
@@ -85,7 +89,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE qhotkey)
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
 if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.MouseClick)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER cn.seayj.MouseClick)
 endif()
 set_target_properties(${PROJECT_NAME} PROPERTIES
     ${BUNDLE_ID_OPTION}
@@ -105,4 +109,3 @@ install(TARGETS ${PROJECT_NAME}
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(${PROJECT_NAME})
 endif()
-

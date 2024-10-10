@@ -1,13 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>fonts/SmileySans/SmileySans-Oblique.ttf</file>
         <file>qss/light-style.qss</file>
-        <file>imgs/favicon_16x.png</file>
-        <file>imgs/favicon_64x.png</file>
-        <file>imgs/favicon_128x.png</file>
-        <file>imgs/favicon_16x.ico</file>
-        <file>imgs/favicon_64x.ico</file>
-        <file>imgs/favicon_128x.ico</file>
         <file>svg/favicon.svg</file>
         <file>qss/dark-style.qss</file>
         <file>svg/close-white.svg</file>
@@ -45,5 +38,6 @@
         <file>svg/toggle-left-line-gray.svg</file>
         <file>svg/up-line-white.svg</file>
         <file>svg/down-line-white.svg</file>
+        <file>fonts/HarmonyOS_Sans_SC/HarmonyOS_Sans_SC_Regular.ttf</file>
     </qresource>
 </RCC>
