@@ -2,22 +2,17 @@
 
 #include <QFile>
 
-QMap<Theme::ThemeMode, QString> MessageBox::_theme_files {
-    {Theme::Light, (":/qss/modules/light-messagebox.qss")},
-    {Theme::Dark, (":/qss/modules/dark-messagebox.qss")}
-};
-
 MessageBox::MessageBox(QWidget* parent)
-    : QMessageBox{parent},
-      _style_agent(StyleAgent::instance())
+    : QMessageBox{parent}
 {
-    LoadThemeStyelSheet(_style_agent.currentTheme());
+    QFile style_file(":/qss/modules/messagebox.qss");
+
+    if (style_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        setStyleSheet(QString::fromUtf8(style_file.readAll()));
+    }
 }
 
-MessageBox::~MessageBox()
-{
-
-}
+MessageBox::~MessageBox() {}
 
 void MessageBox::setIcon(Icon icon)
 {
@@ -41,12 +36,4 @@ void MessageBox::setIcon(Icon icon)
     }
     this->setStyleSheet(styleSheet);
     QMessageBox::setIcon(icon);
-}
-
-void MessageBox::LoadThemeStyelSheet(Theme::ThemeMode theme)
-{
-    QFile style_file(_theme_files[theme]);
-    if (style_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        setStyleSheet(QString::fromUtf8(style_file.readAll()));
-    }
 }

@@ -21,6 +21,7 @@
 
 #include "modules/messagebox.h"
 #include "modules/nav_pages/mouseclickpage.h"
+#include "modules/nav_pages/settingspage.h"
 
 QMap<Theme::ThemeMode, QString> MainWindow::_theme_files {
     {Theme::Light, (":/qss/light-style.qss")},
@@ -176,7 +177,7 @@ void MainWindow::loadSettings()
 {
     QString settings_file_path = QCoreApplication::applicationDirPath() + "/config.ini";
     QFile settings_file(settings_file_path);
-    if (!settings_file.exists()) {
+    if (settings_file.exists()) {
         MessageBox file_missing_msg;
         file_missing_msg.setWindowIcon(QIcon(":/svg/favicon.svg"));
         file_missing_msg.setIcon(QMessageBox::Warning);
@@ -233,36 +234,28 @@ void MainWindow::UIWidgetInit()
     navigation->setIndentation(0);
     navigation->setColumnCount(1);
 
-
     QTreeWidgetItem* mouse_click_item = new QTreeWidgetItem(navigation);
-    QTreeWidgetItem* mouse_recording_item = new QTreeWidgetItem(navigation);
-    QTreeWidgetItem* mouse_macro_item = new QTreeWidgetItem(navigation);
+    QTreeWidgetItem* settings_item = new QTreeWidgetItem(navigation);
 
     QButtonGroup* navigation_item_btn_group = new QButtonGroup(navigation);
 
     const QString mouse_click_page_title = tr("Mouse Click");
-    const QString mouse_recording_page_title = tr("Mouse Record");
-    const QString mouse_macro_page_title = tr("Mouse Macro");
+    const QString settings_page_title = tr("Settings");
 
-    QPushButton* mouse_click = new QPushButton(QIcon(":/svg/mouse-click-item.svg"), mouse_click_page_title, navigation);
-    QPushButton* mouse_recording = new QPushButton(QIcon(":/svg/mouse-recording-item.svg"), mouse_recording_page_title, navigation);
-    QPushButton* mouse_macro = new QPushButton(QIcon(":/svg/mouse-macro-item.svg"), mouse_macro_page_title, navigation);
+    QPushButton* mouse_click = new QPushButton(mouse_click_page_title, navigation);
+    QPushButton* settings = new QPushButton(settings_page_title, navigation);
 
     mouse_click->setCheckable(true);
-    mouse_recording->setCheckable(true);
-    mouse_macro->setCheckable(true);
+    settings->setCheckable(true);
 
     mouse_click->setObjectName(QStringLiteral("nav-item-mouse-click"));
-    mouse_recording->setObjectName(QStringLiteral("nav-item-mouse-recording"));
-    mouse_macro->setObjectName(QStringLiteral("nav-item-mouse-macro"));
+    settings->setObjectName(QStringLiteral("nav-item-settings"));
 
     navigation_item_btn_group->addButton(mouse_click);
-    navigation_item_btn_group->addButton(mouse_recording);
-    navigation_item_btn_group->addButton(mouse_macro);
+    navigation_item_btn_group->addButton(settings);
 
     navigation->setItemWidget(mouse_click_item, 0, mouse_click);
-    navigation->setItemWidget(mouse_recording_item, 0, mouse_recording);
-    navigation->setItemWidget(mouse_macro_item, 0, mouse_macro);
+    navigation->setItemWidget(settings_item, 0, settings);
 
     // set Default selected
     mouse_click->setChecked(true);
@@ -273,9 +266,11 @@ void MainWindow::UIWidgetInit()
     navigation_pages->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
     navigation_pages->setContentsMargins(QMargins());
 
-    navigation_pages->addWidget(new MouseClickPage(mouse_click_page_title, navigation_pages));
-    navigation_pages->addWidget(new QLabel("Content of Mouse Recording Page"));
-    navigation_pages->addWidget(new QLabel("Content of Mouse Macro Page"));
+    SettingsPage* settings_page = new SettingsPage(settings_page_title, navigation_pages);
+    MouseClickPage* mouse_click_page = new MouseClickPage(mouse_click_page_title, *settings_page, navigation_pages);
+
+    navigation_pages->addWidget(mouse_click_page);
+    navigation_pages->addWidget(settings_page);
 
     // set Default page
     navigation_pages->setCurrentIndex(0);
@@ -287,14 +282,9 @@ void MainWindow::UIWidgetInit()
         if (current == mouse_click_item) {
             mouse_click->setChecked(true);
             navigation_pages->setCurrentIndex(0);
-
-        } else if (current == mouse_recording_item) {
-            mouse_recording->setChecked(true);
+        } else if (current == settings_item) {
+            settings->setChecked(true);
             navigation_pages->setCurrentIndex(1);
-
-        } else if (current == mouse_macro_item) {
-            mouse_macro->setChecked(true);
-            navigation_pages->setCurrentIndex(2);
         }
     });
 

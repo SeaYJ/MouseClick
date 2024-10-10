@@ -1,10 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>fonts/SmileySans/SmileySans-Oblique.ttf</file>
-        <file>svg/close.svg</file>
-        <file>svg/maximize.svg</file>
-        <file>svg/minimize.svg</file>
-        <file>svg/restore.svg</file>
         <file>qss/light-style.qss</file>
         <file>imgs/favicon_16x.png</file>
         <file>imgs/favicon_64x.png</file>
@@ -18,34 +14,34 @@
         <file>svg/maximize-blue.svg</file>
         <file>svg/minimize-blue.svg</file>
         <file>svg/restore-blue.svg</file>
-        <file>svg/mouse-click-item.svg</file>
-        <file>svg/mouse-macro-item.svg</file>
-        <file>svg/mouse-recording-item.svg</file>
-        <file>svg/mouse-click-item-hover.svg</file>
-        <file>svg/mouse-click-item-pressed.svg</file>
-        <file>svg/mouse-click-item-selected.svg</file>
-        <file>svg/mouse-macro-item-hover.svg</file>
-        <file>svg/mouse-macro-item-pressed.svg</file>
-        <file>svg/mouse-macro-item-selected.svg</file>
-        <file>svg/mouse-recording-item-hover.svg</file>
-        <file>svg/mouse-recording-item-pressed.svg</file>
-        <file>svg/mouse-recording-item-selected.svg</file>
         <file>qss/modules/light-mouseclickpage.qss</file>
         <file>qss/modules/dark-mouseclickpage.qss</file>
-        <file>svg/MingcuteDownLine.svg</file>
-        <file>svg/MingcuteUpLine.svg</file>
-        <file>svg/MingcuteDownLine-pressed.svg</file>
-        <file>svg/MingcuteUpLine-pressed.svg</file>
-        <file>svg/MingcuteDownLine-disabled.svg</file>
-        <file>svg/MingcuteUpLine-disabled.svg</file>
-        <file>svg/MingcuteToggleLeftLine.svg</file>
-        <file>svg/MingcuteToggleRightFill.svg</file>
-        <file>svg/MingcuteToggleLeftLine-disabled.svg</file>
-        <file>svg/MingcuteToggleRightFill-disabled.svg</file>
         <file>svg/mouse-middle.svg</file>
         <file>svg/mouse-right.svg</file>
         <file>svg/mouse-left.svg</file>
-        <file>qss/modules/dark-messagebox.qss</file>
-        <file>qss/modules/light-messagebox.qss</file>
+        <file>qss/modules/messagebox.qss</file>
+        <file>qss/modules/light-settingspage.qss</file>
+        <file>qss/modules/dark-settingspage.qss</file>
+        <file>svg/restore-white.svg</file>
+        <file>svg/minimize-white.svg</file>
+        <file>svg/maximize-white.svg</file>
+        <file>svg/settings-item-white.svg</file>
+        <file>svg/toggle-right-fill-blue.svg</file>
+        <file>svg/up-line-black.svg</file>
+        <file>svg/down-line-light-gray.svg</file>
+        <file>svg/up-line-gray.svg</file>
+        <file>svg/up-line-light-gray.svg</file>
+        <file>svg/down-line-black.svg</file>
+        <file>svg/down-line-gray.svg</file>
+        <file>svg/minimize-black.svg</file>
+        <file>svg/settings-item-black.svg</file>
+        <file>svg/toggle-right-fill-light-blue.svg</file>
+        <file>svg/mouse-click-item-white.svg</file>
+        <file>svg/mouse-click-item-black.svg</file>
+        <file>svg/restore-black.svg</file>
+        <file>svg/maximize-black.svg</file>
+        <file>svg/close-black.svg</file>
+        <file>svg/toggle-left-line-light-gray.svg</file>
+        <file>svg/toggle-left-line-gray.svg</file>
     </qresource>
 </RCC>

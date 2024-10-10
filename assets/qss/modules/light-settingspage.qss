@@ -1,0 +1,79 @@
+#page-title {
+    border: none;
+    outline: none;
+    font-size: 30px;
+    background-color: transparent;
+}
+
+#page-content {
+    background-color: transparent;
+}
+
+#page-content QLabel {
+    border: none;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    background-color: transparent;
+}
+
+#page-content QPushButton {
+    text-align: center;
+    font-size: 14px;
+    color: #fafafa;
+    outline: none;
+    border-radius: 4px;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 2px solid #2987D5;
+    background-color: #3AA0F5;
+}
+
+#page-content QPushButton:hover {
+    border-bottom: 2px solid #2987D5;
+    background-color: #4DAAF7;
+}
+
+#page-content QPushButton:pressed {
+    border-bottom: 2px solid #5CB0F7;
+    background-color: #5CB0F7;
+}
+
+#page-content QPushButton:disabled {
+    border-bottom-color: #95CBF5;
+    background-color: #9BD2FF;
+}
+
+#page-content QLineEdit {
+    font-size: 14px;
+    padding-left: 12px;
+    border-radius: 4px;
+    border: 2px solid #3aa1f5;
+    background-color: #ffffff;
+}
+
+#page-content QLineEdit:disabled {
+    border-color: #95cbf5;
+}
+
+#page-content QRadioButton::indicator {
+    border: none;
+    width: 32px;
+    height: 32px;
+}
+
+#page-content QRadioButton::indicator:unchecked {
+    image: url(:/svg/toggle-left-line-gray.svg);
+}
+#page-content QRadioButton::indicator:unchecked:disabled {
+    image: url(:/svg/toggle-left-line-light-gray.svg);
+}
+
+#page-content QRadioButton::indicator:checked {
+    image: url(:/svg/toggle-right-fill-blue.svg);
+}
+#page-content QRadioButton::indicator:checked:disabled {
+    image: url(:/svg/toggle-right-fill-light-blue.svg);
+}

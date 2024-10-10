@@ -1,39 +1,41 @@
-#mainwindow
-{
-    background-color: #3c3c3c;
+* {
+    color: #fafafa;
+}
+
+*:disabled {
+    color: #a5a5a5;
+}
+
+MainWindow {
+    background-color: #1f1f1f;
 }
 
 #titlebar-label,
 #titlebar-icon-button,
 #titlebar-min-button,
 #titlebar-max-button,
-#titlebar-close-button
-{
+#titlebar-close-button {
     border: none;
     background-color: transparent;
 }
 
-#titlebar-label
-{
+#titlebar-label {
     font-size: 14px;
 }
 
 #titlebar-label,
-#titlebar-icon-button
-{
+#titlebar-icon-button {
     height: 32px;
 }
 
-#titlebar-icon-button
-{
+#titlebar-icon-button {
     width: 32px;
     icon-size: 18px;
 }
 
 #titlebar-min-button,
 #titlebar-max-button,
-#titlebar-close-button
-{
+#titlebar-close-button {
     margin: 2px;
     width: 32px;
     height: 30px;
@@ -41,13 +43,122 @@
     border-radius: 2px;
 }
 
-#titlebar-min-button:hover,
-#titlebar-max-button:hover
-{
-    background-color: #565656;
+#titlebar-min-button {
+    icon: url(:/svg/minimize-white.svg);
 }
-#titlebar-close-button:hover
-{
+
+#titlebar-max-button {
+    icon: url(:/svg/maximize-white.svg);
+}
+
+#titlebar-max-button:checked {
+    icon: url(:/svg/restore-white.svg);
+}
+
+#titlebar-close-button {
+    icon: url(:/svg/close-white.svg);
+}
+
+#titlebar-min-button:hover,
+#titlebar-max-button:hover {
+    background-color: #3d3d3d;
+}
+
+#titlebar-min-button:hover {
+    icon: url(:/svg/minimize-blue.svg);
+}
+
+#titlebar-max-button:hover {
+    icon: url(:/svg/maximize-blue.svg);
+}
+
+#titlebar-max-button:checked:hover {
+    icon: url(:/svg/restore-blue.svg);
+}
+
+#titlebar-close-button:hover {
     icon: url(:/svg/close-white.svg);
     background-color: #e53c3c;
 }
+
+#central-widget {
+    background-color: transparent;
+}
+
+/********************/
+
+#side-nav,
+#side-nav::item {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+#side-nav {
+    padding: 4px;
+}
+
+#side-nav::item QPushButton {
+    text-align: left;
+    font-size: 14px;
+    color: #fafafa;
+    outline: none;
+    height: 32px;
+    padding-left: 12px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border-radius: 4px;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 2px solid transparent;
+    background-color: transparent;
+}
+
+#side-nav::item QPushButton:hover {
+    border-bottom: 2px solid #2987D5;
+    background-color: #4DAAF7;
+}
+
+#side-nav::item QPushButton:checked {
+    border-bottom: 2px solid #2987D5;
+    background-color: #3AA0F5;
+}
+
+#side-nav::item QPushButton:checked:pressed {
+    border-bottom: 2px solid #5CB0F7;
+    background-color: #5CB0F7;
+}
+
+#nav-item-mouse-click {
+    icon: url(:/svg/mouse-click-item-white.svg);
+}
+#nav-item-settings {
+    icon: url(:/svg/settings-item-white.svg);
+}
+
+#nav-item-mouse-click:pressed,
+#nav-item-mouse-click:checked,
+#nav-item-mouse-click:checked:pressed,
+#nav-item-mouse-click:hover {
+    icon: url(:/svg/mouse-click-item-white.svg);
+}
+#nav-item-settings:pressed,
+#nav-item-settings:checked,
+#nav-item-settings:checked:pressed,
+#nav-item-settings:hover {
+    icon: url(:/svg/settings-item-white.svg);
+}
+
+/********************/
+
+#nav-page {
+    margin-left: 8px;
+    margin-top: 4px;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: #333333;
+}
+
+/********************/
+
+

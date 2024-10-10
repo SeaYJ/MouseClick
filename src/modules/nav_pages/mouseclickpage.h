@@ -3,28 +3,22 @@
 
 #include <QWidget>
 
-#include "../styleagent.h"
-#include "../../utils/clicker.h"
+#include "navpage.h"
+#include "settingspage.h"
 
-class MouseClickPage : public QWidget
+class MouseClickPage : public NavPage
 {
     Q_OBJECT
 public:
-    explicit MouseClickPage(const QString& title, QWidget* parent = nullptr);
+    explicit MouseClickPage(const QString& title, SettingsPage& settings_page, QWidget* parent = nullptr);
     ~MouseClickPage();
-
-Q_SIGNALS:
-    void ThemeChanged();
 
 private:
     Q_DISABLE_COPY(MouseClickPage)
 
-    StyleAgent& _style_agent;
     static QMap<Theme::ThemeMode, QString> _theme_files;
-    Clicker* _clicker;
-    QThread* _clicker_thread;
 
-    void LoadThemeStyelSheet(Theme::ThemeMode theme);
+    QString& getThemeFiles(Theme::ThemeMode theme) override;
 };
 
 #endif // MOUSECLICKPAGE_H

@@ -10,7 +10,6 @@
 #include <QRadioButton>
 #include <QThread>
 
-#include "../hotkeylineedit.h"
 #include "../../utils/clicker.h"
 
 QMap<Theme::ThemeMode, QString> MouseClickPage::_theme_files {
@@ -18,13 +17,10 @@ QMap<Theme::ThemeMode, QString> MouseClickPage::_theme_files {
     {Theme::Dark, (":/qss/modules/dark-mouseclickpage.qss")}
 };
 
-MouseClickPage::MouseClickPage(const QString& title, QWidget* parent)
-    : QWidget{parent},
-      _style_agent(StyleAgent::instance()),
-      _clicker(new Clicker()),
-      _clicker_thread(new QThread())
+MouseClickPage::MouseClickPage(const QString& title, SettingsPage& settings_page, QWidget* parent)
+    : NavPage{parent}
 {
-    LoadThemeStyelSheet(_style_agent.currentTheme());
+    LoadThemeStyleSheet(_style_agent.currentTheme());
 
     QVBoxLayout* central_layout = new QVBoxLayout(this);
     central_layout->setSpacing(0);
@@ -46,39 +42,7 @@ MouseClickPage::MouseClickPage(const QString& title, QWidget* parent)
     page_content_layout->setSpacing(12);
     page_content_layout->setContentsMargins(QMargins(0, 8, 0, 8));
 
-    const int pageContentUniformHeight = 32;
-
-    /********************/
-
-    QWidget* hotkey_content = new QWidget(page_content);
-    hotkey_content->setFixedHeight(pageContentUniformHeight);
-
-    QHBoxLayout* hotkey_content_layout = new QHBoxLayout(hotkey_content);
-    hotkey_content_layout->setSpacing(0);
-    hotkey_content_layout->setContentsMargins(QMargins());
-
-    QLabel* hotkey_desc = new QLabel(hotkey_content);
-    hotkey_desc->setObjectName(QStringLiteral("hotkey-desc"));
-    hotkey_desc->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    hotkey_desc->setFocusPolicy(Qt::NoFocus);
-    hotkey_desc->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
-    hotkey_desc->setText(tr("Start/End Hotkey"));
-
-    HotkeyLineEdit* hotkey_reader = new HotkeyLineEdit(hotkey_content);
-    hotkey_reader->setObjectName(QStringLiteral("hotkey-reader"));
-    hotkey_reader->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-
-    hotkey_content_layout->addWidget(hotkey_desc);
-    hotkey_content_layout->addWidget(hotkey_reader);
-    hotkey_content->setLayout(hotkey_content_layout);
-
-    /********************/
-
-    QPushButton* hotkey_clean = new QPushButton(page_content);
-    hotkey_clean->setObjectName(QStringLiteral("hotkey-clean-btn"));
-    hotkey_clean->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    hotkey_clean->setFixedHeight(pageContentUniformHeight);
-    hotkey_clean->setText(tr("Hotkey Clean"));
+    const int pageContentUniformHeight = 32;    // 统一控件高度
 
     /********************/
 
@@ -192,8 +156,6 @@ MouseClickPage::MouseClickPage(const QString& title, QWidget* parent)
 
     /********************/
 
-    page_content_layout->addWidget(hotkey_content);
-    page_content_layout->addWidget(hotkey_clean);
     page_content_layout->addWidget(click_type_content);
     page_content_layout->addWidget(interval_time_content);
     page_content_layout->addWidget(random_interval_toggle_content);
@@ -212,19 +174,13 @@ MouseClickPage::MouseClickPage(const QString& title, QWidget* parent)
         interval_time->setEnabled(!checked);
     });
 
-    // Thread initialization
-    _clicker->moveToThread(_clicker_thread);
-    connect(_clicker_thread, &QThread::started, _clicker, &Clicker::start);
-
     // hotkey event
-    connect(hotkey_reader, &HotkeyLineEdit::hotkeyActivated, this,[=]() {
-        if (_clicker_thread->isRunning()) {
-            _clicker->stop();
-            _clicker_thread->quit();
-            _clicker_thread->wait();// 这里有问题
+    connect(settings_page._hotkey_reader, &HotkeyLineEdit::hotkeyActivated, this, [=, &settings_page]() {
+        if (NavPage::_clicker_thread->isRunning()) {
+            NavPage::_clicker->stop();
+            NavPage::_clicker_thread->quit();
+            NavPage::_clicker_thread->wait();
 
-            hotkey_reader->setEnabled(true);
-            hotkey_clean->setEnabled(true);
             click_type_list->setEnabled(true);
             interval_time->setEnabled(!random_interval_toggle_btn->isChecked());
             random_interval_toggle_btn->setEnabled(true);
@@ -245,40 +201,28 @@ MouseClickPage::MouseClickPage(const QString& title, QWidget* parent)
             bool random_interval_flag = random_interval_toggle_btn->isChecked();
             int max_random_interval = static_cast<int>(random_interval_time->value() * 1000);   // 转为毫秒值
 
-            _clicker->initParameters(btn_type, interval, random_interval_flag, max_random_interval);
-            _clicker_thread->start();   // Note: This should be initiated through a sub-thread.
+            NavPage::_clicker->initParameters(btn_type, interval, random_interval_flag, max_random_interval);
+            NavPage::_clicker_thread->start();   // Note: This should be initiated through a sub-thread.
 
-            hotkey_reader->setEnabled(false);
-            hotkey_clean->setEnabled(false);
             click_type_list->setEnabled(false);
             interval_time->setEnabled(false);
             random_interval_toggle_btn->setEnabled(false);
             random_interval_time->setEnabled(false);
         }
     });
-
-    connect(hotkey_clean, &QPushButton::clicked, this, [hotkey_reader]() {
-        hotkey_reader->cleanHotKey();
-    });
 }
 
 MouseClickPage::~MouseClickPage()
 {
     // There is a possibility that the user hasn't stopped clicking when closing the program.
-    if (_clicker_thread->isRunning()) {
-        _clicker->stop();
-        _clicker_thread->quit();
-        _clicker_thread->wait();
+    if (NavPage::_clicker_thread->isRunning()) {
+        NavPage::_clicker->stop();
+        NavPage::_clicker_thread->quit();
+        NavPage::_clicker_thread->wait();
     }
-
-    delete _clicker;
-    delete _clicker_thread;
 }
 
-void MouseClickPage::LoadThemeStyelSheet(Theme::ThemeMode theme)
+QString& MouseClickPage::getThemeFiles(Theme::ThemeMode theme)
 {
-    QFile style_file(_theme_files[theme]);
-    if (style_file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        setStyleSheet(QString::fromUtf8(style_file.readAll()));
-    }
+    return MouseClickPage::_theme_files[theme];
 }

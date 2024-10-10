@@ -16,7 +16,7 @@ QMessageBox QLabel#qt_msgboxex_icon_label { /* iconLabel */
 QMessageBox QPushButton {
     text-align: center;
     font-size: 14px;
-    color: #ffffff;
+    color: #fafafa;
     outline: none;
     border-radius: 4px;
     border-left: none;
@@ -29,13 +29,11 @@ QMessageBox QPushButton {
 }
 
 QMessageBox QPushButton:hover {
-    color: #f6f6f6;
     border-bottom: 2px solid #2987D5;
     background-color: #4DAAF7;
 }
 
 QMessageBox QPushButton:pressed {
-    color: #fafafa;
     border-bottom: 2px solid #5CB0F7;
     background-color: #5CB0F7;
 }

@@ -1,3 +1,11 @@
+* {
+    color: #1e1e1e;
+}
+
+*:disabled {
+    color: #787878;
+}
+
 MainWindow {
     background-color: #eeeef2;
 }
@@ -36,19 +44,19 @@ MainWindow {
 }
 
 #titlebar-min-button {
-    icon: url(:/svg/minimize.svg);
+    icon: url(:/svg/minimize-black.svg);
 }
 
 #titlebar-max-button {
-    icon: url(:/svg/maximize.svg);
+    icon: url(:/svg/maximize-black.svg);
 }
 
 #titlebar-max-button:checked {
-    icon: url(:/svg/restore.svg);
+    icon: url(:/svg/restore-black.svg);
 }
 
 #titlebar-close-button {
-    icon: url(:/svg/close.svg);
+    icon: url(:/svg/close-black.svg);
 }
 
 #titlebar-min-button:hover,
@@ -107,13 +115,13 @@ MainWindow {
 }
 
 #side-nav::item QPushButton:hover {
-    color: #f6f6f6;
+    color: #fafafa;
     border-bottom: 2px solid #2987D5;
     background-color: #4DAAF7;
 }
 
 #side-nav::item QPushButton:checked {
-    color: #ffffff;
+    color: #fafafa;
     border-bottom: 2px solid #2987D5;
     background-color: #3AA0F5;
 }
@@ -124,37 +132,24 @@ MainWindow {
     background-color: #5CB0F7;
 }
 
-#nav-item-mouse-click:hover {
-    icon: url(:/svg/mouse-click-item-hover.svg);
+#nav-item-mouse-click {
+    icon: url(:/svg/mouse-click-item-black.svg);
 }
-#nav-item-mouse-recording:hover {
-    icon: url(:/svg/mouse-recording-item-hover.svg);
-}
-#nav-item-mouse-macro:hover {
-    icon: url(:/svg/mouse-macro-item-hover.svg);
+#nav-item-settings {
+    icon: url(:/svg/settings-item-black.svg);
 }
 
 #nav-item-mouse-click:pressed,
-#nav-item-mouse-click:checked:pressed {
-    icon: url(:/svg/mouse-click-item-pressed.svg);
+#nav-item-mouse-click:checked,
+#nav-item-mouse-click:checked:pressed,
+#nav-item-mouse-click:hover {
+    icon: url(:/svg/mouse-click-item-white.svg);
 }
-#nav-item-mouse-recording:pressed,
-#nav-item-mouse-recording:checked:pressed {
-    icon: url(:/svg/mouse-recording-item-pressed.svg);
-}
-#nav-item-mouse-macro:pressed,
-#nav-item-mouse-macro:checked:pressed {
-    icon: url(:/svg/mouse-macro-item-pressed.svg);
-}
-
-#nav-item-mouse-click:checked {
-    icon: url(:/svg/mouse-click-item-selected.svg);
-}
-#nav-item-mouse-recording:checked {
-    icon: url(:/svg/mouse-recording-item-selected.svg);
-}
-#nav-item-mouse-macro:checked {
-    icon: url(:/svg/mouse-macro-item-selected.svg);
+#nav-item-settings:pressed,
+#nav-item-settings:checked,
+#nav-item-settings:checked:pressed,
+#nav-item-settings:hover {
+    icon: url(:/svg/settings-item-white.svg);
 }
 
 /********************/

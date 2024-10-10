@@ -1,3 +1,171 @@
 #page-title {
-    font-size: 32px;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    background-color: transparent;
 }
+
+#page-content {
+    background-color: transparent;
+}
+
+#page-content QLabel {
+    border: none;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+    background-color: transparent;
+}
+
+#page-content QPushButton {
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    outline: none;
+    border-radius: 4px;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: 2px solid #2987D5;
+    background-color: #3AA0F5;
+}
+
+#page-content QPushButton:hover {
+    color: #f6f6f6;
+    border-bottom: 2px solid #2987D5;
+    background-color: #4DAAF7;
+}
+
+#page-content QPushButton:pressed {
+    color: #fafafa;
+    border-bottom: 2px solid #5CB0F7;
+    background-color: #5CB0F7;
+}
+
+#page-content QPushButton:disabled {
+    border-bottom-color: #95CBF5;
+    background-color: #9BD2FF;
+}
+
+#page-content QLineEdit,
+#page-content QComboBox,
+#page-content QDoubleSpinBox {
+    font-size: 14px;
+    padding-left: 12px;
+    border-radius: 4px;
+    border: 2px solid #3aa1f5;
+    background-color: #464646;
+}
+
+#page-content QComboBox::drop-down {
+    width: 32px;
+    border: none;
+    background-color: transparent;
+}
+
+#page-content QComboBox::down-arrow {
+    image: url(:/svg/down-line-black.svg);
+    width: 24px;
+    height: 24px;
+}
+
+#page-content QComboBox QAbstractItemView {
+    outline: none;
+    border-top: 1px solid #3aa1f5;
+    border-left: 2px solid #3aa1f5;
+    border-right: 2px solid #3aa1f5;
+    border-bottom: 2px solid #3aa1f5;
+    background-color: #464646;
+}
+
+#page-content QComboBox QAbstractItemView::item {
+    color: #fafafa;
+    padding-left: 12px;
+    height: 32px;
+    background-color: transparent;
+}
+
+#page-content QComboBox QAbstractItemView::item:hover {
+    background-color: #2a2d2e;
+}
+
+#page-content QComboBox::down-arrow:disabled {
+    image: url(:/svg/down-line-light-gray.svg);
+}
+
+#page-content QRadioButton::indicator {
+    border: none;
+    width: 32px;
+    height: 32px;
+}
+
+#page-content QRadioButton::indicator:unchecked {
+    image: url(:/svg/toggle-left-line-gray.svg);
+}
+#page-content QRadioButton::indicator:unchecked:disabled {
+    image: url(:/svg/toggle-left-line-light-gray.svg);
+}
+
+#page-content QRadioButton::indicator:checked {
+    image: url(:/svg/toggle-right-fill-blue.svg);
+}
+#page-content QRadioButton::indicator:checked:disabled {
+    image: url(:/svg/toggle-right-fill-light-blue.svg);
+}
+
+#page-content QDoubleSpinBox:disabled,
+#page-content QComboBox:disabled,
+#page-content QLineEdit:disabled {
+    border-color: #95cbf5;
+}
+
+#page-content QDoubleSpinBox::up-button,
+#page-content QDoubleSpinBox::down-button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+#page-content QDoubleSpinBox::up-arrow,
+#page-content QDoubleSpinBox::down-arrow {
+    width: 16px;
+    height: 16px;
+}
+
+#page-content QDoubleSpinBox::up-arrow {
+    image: url(:/svg/up-line-black.svg);
+}
+
+#page-content QDoubleSpinBox::down-arrow {
+    image: url(:/svg/down-line-black.svg);
+}
+
+#page-content QDoubleSpinBox::up-arrow:pressed {
+    image: url(:/svg/up-line-gray.svg);
+    height: 15px;
+}
+
+#page-content QDoubleSpinBox::up-arrow:disabled {
+    image: url(:/svg/up-line-light-gray.svg);
+}
+
+#page-content QDoubleSpinBox::down-arrow:pressed {
+    image: url(:/svg/down-line-gray.svg);
+    height: 15px;
+}
+
+#page-content QDoubleSpinBox::down-arrow:disabled {
+    image: url(:/svg/down-line-light-gray.svg);
+}
+
+#page-content #hotkey-reader:focus {
+    background-color: #ecf5ff;
+}
+
+
+
+
+
+
+
