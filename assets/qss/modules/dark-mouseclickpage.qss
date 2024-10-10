@@ -65,7 +65,7 @@
 }
 
 #page-content QComboBox::down-arrow {
-    image: url(:/svg/down-line-black.svg);
+    image: url(:/svg/down-line-white.svg);
     width: 24px;
     height: 24px;
 }
@@ -134,11 +134,11 @@
 }
 
 #page-content QDoubleSpinBox::up-arrow {
-    image: url(:/svg/up-line-black.svg);
+    image: url(:/svg/up-line-white.svg);
 }
 
 #page-content QDoubleSpinBox::down-arrow {
-    image: url(:/svg/down-line-black.svg);
+    image: url(:/svg/down-line-white.svg);
 }
 
 #page-content QDoubleSpinBox::up-arrow:pressed {

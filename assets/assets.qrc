@@ -43,5 +43,7 @@
         <file>svg/close-black.svg</file>
         <file>svg/toggle-left-line-light-gray.svg</file>
         <file>svg/toggle-left-line-gray.svg</file>
+        <file>svg/up-line-white.svg</file>
+        <file>svg/down-line-white.svg</file>
     </qresource>
 </RCC>

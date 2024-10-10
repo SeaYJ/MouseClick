@@ -177,7 +177,7 @@ void MainWindow::loadSettings()
 {
     QString settings_file_path = QCoreApplication::applicationDirPath() + "/config.ini";
     QFile settings_file(settings_file_path);
-    if (settings_file.exists()) {
+    if (!settings_file.exists()) {
         MessageBox file_missing_msg;
         file_missing_msg.setWindowIcon(QIcon(":/svg/favicon.svg"));
         file_missing_msg.setIcon(QMessageBox::Warning);
