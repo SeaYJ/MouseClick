@@ -50,16 +50,18 @@
 ```cmd
 git clone git@github.com:SeaYJ/MouseClick.git
 ```
+2. 直接编译即可。
 
-2. 检查一下两个项目依赖库 CMAKE 环境是否配置正确（如果是 Qt Creator，则在“**项目-CMake-Current Configuration**”中添加）：
-```CMAKE
--DQHotkey_DIR:PATH=<your_path>/MouseClick/deps/qhotkey/lib/cmake/QHotkey
-```
-```CMAKE
--DQWindowKit_DIR:PATH=<your_path>/MouseClick/deps/qwindowkit/lib/cmake/QWindowKit
-```
+# 🛒 打包项目
 
-3. 配置完成后，直接编译即可。
+1. 进入 **/MouseClick/build/Desktop_Qt_x_x_x_xxxxx_xxx_bit-Release/dist** 目录中，里面的文件就是打包所需全部文件（需要先编译才能看到）。
+2. 打开与你编译项目时使用的编译器**版本一致**的 **Qt CMD**（例如下图），并 cd 进入该目录。
+![Qt CMD](docs/SeaEpoch_2024-10-22_09-51-39.jpg)
+3. 执行命令 `windeployqt.exe ./MouseClick.exe`，等待命令结束即可打包成功。
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=SeaYJ/MouseClick&type=Date)](https://star-history.com/#SeaYJ/MouseClick&Date)
 
 # 📄 开源证书
 

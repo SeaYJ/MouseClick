@@ -13,10 +13,12 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets LinguistTools)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 
 set(QWINDOWKIT_ROOT "${CMAKE_SOURCE_DIR}/deps/qwindowkit")
-find_package(QWindowKit REQUIRED PATH "${QWINDOWKIT_ROOT}/lib/cmake/QWindowKit")
+set(QWindowKit_DIR "${QWINDOWKIT_ROOT}/lib/cmake/QWindowKit")
+find_package(QWindowKit REQUIRED)
 
 set(QHOTKEY_ROOT "${CMAKE_SOURCE_DIR}/deps/qhotkey")
-find_package(QHotkey REQUIRED PATHS "${QHOTKEY_ROOT}/lib/cmake/QHotkey")
+set(QHotkey_DIR "${QHOTKEY_ROOT}/lib/cmake/QHotkey")
+find_package(QHotkey REQUIRED)
 
 set(QWK_WINDOWBAR_FILES
     src/qwk_window_bar/windowbar.h      src/qwk_window_bar/windowbar.cpp
@@ -109,3 +111,25 @@ install(TARGETS ${PROJECT_NAME}
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(${PROJECT_NAME})
 endif()
+
+
+# 构建打包环境 dist 目录
+# 1. 复制 QWindowKit 的 dll 文件到构建目录
+add_custom_command(
+    TARGET MouseClick
+    PRE_BUILD  # 在构建之前执行
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_SOURCE_DIR}/deps/qwindowkit/bin"
+        "${CMAKE_BINARY_DIR}/dist"
+    COMMENT "Copy the dll files of QWindowKit to the build directory!"
+)
+
+# 2. 复制生成的可执行文件到 dist 目录
+add_custom_command(
+    TARGET MouseClick
+    POST_BUILD  # 在可执行文件生成之后执行
+    COMMAND ${CMAKE_COMMAND} -E copy
+        "$<TARGET_FILE:MouseClick>"  # 目标文件，即生成的 MouseClick.exe
+        "${CMAKE_BINARY_DIR}/dist"
+    COMMENT "Copy the generated executable to the dist directory!"
+)
