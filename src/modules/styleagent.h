@@ -26,7 +26,7 @@ Q_SIGNALS:
     void currentThemeChanged(Theme::ThemeMode current_theme);
 
 private:
-    StyleAgent(QObject* parent = nullptr);
+    explicit StyleAgent(QObject* parent = nullptr);
     StyleAgent(const StyleAgent&) = delete;
     StyleAgent& operator=(const StyleAgent&) = delete;
 

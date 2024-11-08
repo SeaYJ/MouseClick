@@ -5,6 +5,10 @@
 #include <QTranslator>
 #include <QFont>
 #include <QFontDatabase>
+#include <QSettings>
+#include <QFile>
+
+#include "./modules/languageagent.h"
 
 int main(int argc, char* argv[])
 {
@@ -15,14 +19,11 @@ int main(int argc, char* argv[])
     QApplication app(argc, argv);
 
     // 国际化
+    LanguageAgent& language_agent = LanguageAgent::instance();
     QTranslator translator;
-    const QStringList ui_languages = QLocale::system().uiLanguages();
-    for (const QString& locale : ui_languages) {
-        const QString base_name = "MouseClick_" + QLocale(locale).name();
-        if (translator.load(":/i18n/" + base_name)) {
-            app.installTranslator(&translator);
-            break;
-        }
+    const QString base_name = "MouseClick_" + language_agent.currentLanguage();
+    if (translator.load(":/i18n/" + base_name)) {
+        app.installTranslator(&translator);
     }
 
     // 设置字体
@@ -35,7 +36,7 @@ int main(int argc, char* argv[])
         }
     }
 
-    MainWindow window(nullptr);
+    MainWindow window;
     window.show();
 
     return app.exec();

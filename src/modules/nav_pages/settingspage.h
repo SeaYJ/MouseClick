@@ -1,6 +1,7 @@
 #ifndef SETTINGSPAGE_H
 #define SETTINGSPAGE_H
 
+#include <QComboBox>
 #include <QWidget>
 
 #include "navpage.h"

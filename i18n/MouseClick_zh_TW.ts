@@ -103,19 +103,43 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="61"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="67"/>
         <source>Start/End Hotkey</source>
         <translation>“開始/結束”快捷鍵</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="77"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="83"/>
         <source>Hotkey Clean</source>
         <translation>清除快速鍵</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="93"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="99"/>
         <source>Dark Theme</source>
         <translation>深色模式</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="124"/>
+        <source>Language</source>
+        <translation>語言設定</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="129"/>
+        <source>English(United States)</source>
+        <translation>English(United States)</translation>
+    </message>
+    <message>
+        <source>English</source>
+        <translation type="vanished">英語</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="130"/>
+        <source>Chinese(Simplified)</source>
+        <translation>中文（简体）</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="131"/>
+        <source>Chinese(Traditional)</source>
+        <translation>中文（繁體）</translation>
     </message>
 </context>
 </TS>

@@ -6,8 +6,14 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QRadioButton>
+#include <QApplication>
+#include <QComboBox>
+#include <QDir>
+#include <QTranslator>
+#include <QProcess>
 
 #include "../hotkeylineedit.h"
+#include "../languageagent.h"
 
 QMap<Theme::ThemeMode, QString> SettingsPage::_theme_files {
     {Theme::Light, (":/qss/modules/light-settingspage.qss")},
@@ -103,9 +109,50 @@ SettingsPage::SettingsPage(const QString& title, QWidget* parent)
 
     /********************/
 
+    QWidget* language_switch_content = new QWidget(page_content);
+    language_switch_content->setFixedHeight(pageContentUniformHeight);
+
+    QHBoxLayout* language_switch_content_layout = new QHBoxLayout(language_switch_content);
+    language_switch_content_layout->setSpacing(0);
+    language_switch_content_layout->setContentsMargins(QMargins());
+
+    QLabel* language_switch_desc = new QLabel(language_switch_content);
+    language_switch_desc->setObjectName(QStringLiteral("language-switch-desc"));
+    language_switch_desc->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    language_switch_desc->setFocusPolicy(Qt::NoFocus);
+    language_switch_desc->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+    language_switch_desc->setText(tr("Language"));
+
+    QComboBox* language_list = new QComboBox(language_switch_content);
+    language_list->setObjectName(QStringLiteral("language-list"));
+    language_list->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    language_list->addItem(tr("English(United States)"), QVariant("en_US"));
+    language_list->addItem(tr("Chinese(Simplified)"), QVariant("zh_CN"));
+    language_list->addItem(tr("Chinese(Traditional)"), QVariant("zh_TW"));
+
+    // 确定当前的语言
+    LanguageAgent& language_agent = LanguageAgent::instance();
+    QString current_language = language_agent.currentLanguage();
+
+    // 遍历 QComboBox 项目，找到对应的选项并设置为选中状态
+    for (int i = 0; i < language_list->count(); ++i) {
+        QVariant item_data = language_list->itemData(i);
+        if (item_data.toString() == current_language) {
+            language_list->setCurrentIndex(i);
+            break;
+        }
+    }
+
+    language_switch_content_layout->addWidget(language_switch_desc);
+    language_switch_content_layout->addWidget(language_list);
+    language_switch_content->setLayout(language_switch_content_layout);
+
+    /********************/
+
     page_content_layout->addWidget(hotkey_content);
     page_content_layout->addWidget(_hotkey_clean);
     page_content_layout->addWidget(theme_toggle_content);
+    page_content_layout->addWidget(language_switch_content);
     page_content_layout->addStretch();
 
     central_layout->addWidget(page_title);
@@ -130,6 +177,21 @@ SettingsPage::SettingsPage(const QString& title, QWidget* parent)
         } else {
             _hotkey_reader->setEnabled(false);
             _hotkey_clean->setEnabled(false);
+        }
+    });
+
+    connect(language_list, &QComboBox::currentIndexChanged, this, [=](int index) {
+        LanguageAgent& language_agent = LanguageAgent::instance();  // 必须重新获取才能使用接口
+        QString selected_language = language_list->itemData(index).toString();
+
+        // 判断选择的语言是否和当前语言相同，不同则进行切换
+        if (selected_language != language_agent.currentLanguage()) {
+            language_agent.setCurrentLanguage(selected_language);
+
+            // 重新启动应用程序以应用新语言
+            QCoreApplication::exit(0);
+            QStringList args = QCoreApplication::arguments();
+            QProcess::startDetached(QCoreApplication::applicationFilePath(), args);
         }
     });
 }

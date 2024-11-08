@@ -43,6 +43,7 @@ set(PROJECT_SOURCES
         src/modules/nav_pages/settingspage.h    src/modules/nav_pages/settingspage.cpp
         src/modules/shared.h                    src/modules/shared.cpp
         src/modules/styleagent.h                src/modules/styleagent.cpp
+        src/modules/languageagent.h             src/modules/languageagent.cpp
         src/modules/hotkeylineedit.h            src/modules/hotkeylineedit.cpp
         src/modules/messagebox.h                src/modules/messagebox.cpp
         src/utils/clicker.h                     src/utils/clicker.cpp
