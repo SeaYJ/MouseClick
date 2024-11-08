@@ -128,10 +128,6 @@
         <translation>English(United States)</translation>
     </message>
     <message>
-        <source>English</source>
-        <translation type="vanished">English</translation>
-    </message>
-    <message>
         <location filename="../src/modules/nav_pages/settingspage.cpp" line="130"/>
         <source>Chinese(Simplified)</source>
         <translation>中文（简体）</translation>
