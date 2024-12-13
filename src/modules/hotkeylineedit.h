@@ -18,6 +18,9 @@ public:
 
     void cleanHotKey();
 
+    const QString getHotkey() const;
+    void setHotkey(const QString& key_sequence);
+
 Q_SIGNALS:
     void hotkeyActivated();
 

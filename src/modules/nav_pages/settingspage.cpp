@@ -11,6 +11,7 @@
 #include <QDir>
 #include <QTranslator>
 #include <QProcess>
+#include <QSettings>
 
 #include "../hotkeylineedit.h"
 #include "../languageagent.h"
@@ -69,6 +70,20 @@ SettingsPage::SettingsPage(const QString& title, QWidget* parent)
     _hotkey_reader = new HotkeyLineEdit(hotkey_content);
     _hotkey_reader->setObjectName(QStringLiteral("hotkey-reader"));
     _hotkey_reader->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+    // 设置保存的快捷键（上一次使用）
+    QString settings_file_path = QCoreApplication::applicationDirPath() + "/config.ini";
+    QFile settings_file(settings_file_path);
+    QSettings settings(settings_file_path, QSettings::IniFormat);
+    settings.beginGroup("Settings");
+    const QString pre_hotkey = settings.value("Hotkey").toString();
+    if (pre_hotkey.isEmpty()) {
+        _hotkey_reader->setHotkey("Ctrl+F2");   // 默认快捷键
+    }
+    else {
+        _hotkey_reader->setHotkey(pre_hotkey);  // 上一次使用的快捷键
+    }
+    settings.endGroup();
 
     hotkey_content_layout->addWidget(hotkey_desc);
     hotkey_content_layout->addWidget(_hotkey_reader);
@@ -198,6 +213,15 @@ SettingsPage::SettingsPage(const QString& title, QWidget* parent)
 
 SettingsPage::~SettingsPage()
 {
+    QString settings_file_path = QCoreApplication::applicationDirPath() + "/config.ini";
+    QSettings settings(settings_file_path, QSettings::IniFormat);
+
+    settings.beginGroup("Settings");
+    settings.setValue("Hotkey", _hotkey_reader->getHotkey());
+    settings.endGroup();
+
+    /************************/
+
     delete _hotkey_reader;
     delete _hotkey_clean;
 }

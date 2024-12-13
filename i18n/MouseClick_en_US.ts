@@ -9,17 +9,17 @@
         <translation>Please set a shortcut hotkey</translation>
     </message>
     <message>
-        <location filename="../src/modules/hotkeylineedit.cpp" line="120"/>
+        <location filename="../src/modules/hotkeylineedit.cpp" line="140"/>
         <source>ERROR</source>
         <translation>ERROR</translation>
     </message>
     <message>
-        <location filename="../src/modules/hotkeylineedit.cpp" line="120"/>
+        <location filename="../src/modules/hotkeylineedit.cpp" line="140"/>
         <source>Failed to register global hotkey.</source>
         <translation>Failed to register global hotkey.</translation>
     </message>
     <message>
-        <location filename="../src/modules/hotkeylineedit.cpp" line="121"/>
+        <location filename="../src/modules/hotkeylineedit.cpp" line="141"/>
         <source>OK</source>
         <translation>OK</translation>
     </message>
@@ -103,37 +103,37 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="67"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="68"/>
         <source>Start/End Hotkey</source>
         <translation>Start/End Hotkey</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="83"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="98"/>
         <source>Hotkey Clean</source>
         <translation>Hotkey Clean</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="99"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="114"/>
         <source>Dark Theme</source>
         <translation>Dark Theme</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="124"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="139"/>
         <source>Language</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="129"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="144"/>
         <source>English(United States)</source>
         <translation>English(United States)</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="130"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="145"/>
         <source>Chinese(Simplified)</source>
         <translation>中文（简体）</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="131"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="146"/>
         <source>Chinese(Traditional)</source>
         <translation>中文（繁體）</translation>
     </message>

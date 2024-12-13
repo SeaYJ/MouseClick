@@ -31,6 +31,22 @@ void HotkeyLineEdit::cleanHotKey()
     unregisterGlobalHotkey();
 }
 
+const QString HotkeyLineEdit::getHotkey() const
+{
+    return _key_sequence;
+}
+
+void HotkeyLineEdit::setHotkey(const QString& key_sequence)
+{
+    _key_sequence = key_sequence;
+
+    setText(_key_sequence);
+
+    if (!_key_sequence.isEmpty()) {
+        registerGlobalHotkey();
+    }
+}
+
 void HotkeyLineEdit::mousePressEvent(QMouseEvent* event)
 {
     if (!hasFocus()) {
@@ -91,6 +107,10 @@ void HotkeyLineEdit::keyReleaseEvent(QKeyEvent* event)
 
 void HotkeyLineEdit::registerGlobalHotkey()
 {
+#ifdef QT_DEBUG
+    qDebug() << "[HotkeyLineEdit]_key_sequence = " << _key_sequence;
+#endif
+
     unregisterGlobalHotkey(); // 先注销之前的快捷键
 
     QStringList keys = _key_sequence.split('+');
