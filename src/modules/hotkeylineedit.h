@@ -23,6 +23,7 @@ public:
 
 Q_SIGNALS:
     void hotkeyActivated();
+    void currentHotkeyChanged(const QString& key_sequence);
 
 protected:
     void mousePressEvent(QMouseEvent* event) override;

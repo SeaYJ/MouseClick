@@ -19,9 +19,9 @@
 #include "qwk_window_bar/windowbar.h"
 #include "qwk_window_bar/windowbutton.h"
 
-#include "modules/messagebox.h"
 #include "modules/nav_pages/mouseclickpage.h"
 #include "modules/nav_pages/settingspage.h"
+#include "modules/settingsagent.h"
 
 QMap<Theme::ThemeMode, QString> MainWindow::_theme_files {
     {Theme::Light, (":/qss/light-style.qss")},
@@ -67,12 +67,12 @@ static inline void emulateLeaveEvent(QWidget* widget)
 
 
 MainWindow::MainWindow(QWidget* parent)
-    : QMainWindow(parent),
-      _style_agent(StyleAgent::instance())
+    : QMainWindow(parent)
 {
-    loadSettings();
+    SettingsAgent& app_settings = SettingsAgent::instance();
 
-    loadThemeStyelSheet(_style_agent.currentTheme());
+    setWindowState(app_settings.WindowState());
+    loadThemeStyelSheet(app_settings.ThemeMode());
 
     /******************/
 
@@ -173,40 +173,6 @@ void MainWindow::windowInit(const QString& title, const QIcon& icon)
     setWindowIcon(icon);
 }
 
-void MainWindow::loadSettings()
-{
-    QString settings_file_path = QCoreApplication::applicationDirPath() + "/config.ini";
-    QFile settings_file(settings_file_path);
-    if (!settings_file.exists()) {
-        MessageBox file_missing_msg;
-        file_missing_msg.setWindowIcon(QIcon(":/svg/favicon.svg"));
-        file_missing_msg.setIcon(QMessageBox::Warning);
-        file_missing_msg.setText(tr("WARNING"));
-        file_missing_msg.setInformativeText(tr("The configuration file 'condig.ini' was not found. The program may have been modified. It is recommended to reinstall the program, which may resolve this issue."));
-
-        QPushButton* ignore_btn = file_missing_msg.addButton(tr("Ignore"), QMessageBox::NoRole);
-        QPushButton* reinstall_btn = file_missing_msg.addButton(tr("Reinstall"), QMessageBox::YesRole);
-        file_missing_msg.setDefaultButton(ignore_btn);
-
-        file_missing_msg.exec();
-
-        if (file_missing_msg.clickedButton() == reinstall_btn) {
-            QDesktopServices::openUrl(QUrl("https://seayj.github.io/MouseClick/"));
-        } else if (file_missing_msg.clickedButton() == ignore_btn) {
-            // nothing to do
-        } else {
-            // nothing to do
-        }
-    }
-
-    QSettings settings(settings_file_path, QSettings::IniFormat);
-
-    settings.beginGroup("MainWindow");
-    _style_agent.setCurrentTheme(static_cast<Theme::ThemeMode>(settings.value("ThemeMode").toInt()));
-    setWindowState(static_cast<Qt::WindowStates>(settings.value("WindowState").toInt()));
-    settings.endGroup();
-}
-
 void MainWindow::loadThemeStyelSheet(Theme::ThemeMode theme)
 {
     QFile style_file(_theme_files[theme]);
@@ -293,16 +259,8 @@ void MainWindow::UIWidgetInit()
 
 void MainWindow::connectInit()
 {
-    connect(&_style_agent, &StyleAgent::currentThemeChanged, this, &MainWindow::loadThemeStyelSheet);
+    connect(&SettingsAgent::instance(), &SettingsAgent::currentThemeChanged, this, &MainWindow::loadThemeStyelSheet);
 }
 
 MainWindow::~MainWindow()
-{
-    QString settings_file_path = QCoreApplication::applicationDirPath() + "/config.ini";
-    QSettings settings(settings_file_path, QSettings::IniFormat);
-
-    settings.beginGroup("MainWindow");
-    settings.setValue("ThemeMode", static_cast<int>(_style_agent.currentTheme()));
-    settings.setValue("WindowState", windowState().toInt());
-    settings.endGroup();
-}
+{}

@@ -1,4 +1,6 @@
 #include "navpage.h"
+#include "../shared.h"
+#include "../settingsagent.h"
 
 #include <QFile>
 #include <QThread>
@@ -10,11 +12,10 @@ QThread* NavPage::_clicker_thread = new QThread();
 bool NavPage::_is_thread_initialized = false;
 
 NavPage::NavPage(QWidget* parent)
-    : QWidget{parent},
-      _style_agent(StyleAgent::instance())
+    : QWidget{parent}
 {
-    disconnect(&_style_agent, &StyleAgent::currentThemeChanged, this, &NavPage::LoadThemeStyleSheet);
-    connect(&_style_agent, &StyleAgent::currentThemeChanged, this, &NavPage::LoadThemeStyleSheet);
+    disconnect(&SettingsAgent::instance(), &SettingsAgent::currentThemeChanged, this, &NavPage::LoadThemeStyleSheet);
+    connect(&SettingsAgent::instance(), &SettingsAgent::currentThemeChanged, this, &NavPage::LoadThemeStyleSheet);
 
     // Thread initialization once
     if (!_is_thread_initialized) {

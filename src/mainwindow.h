@@ -1,9 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
+#include "modules/shared.h"
 
-#include "modules/styleagent.h"
+#include <QMainWindow>
 
 namespace QWK
 {
@@ -24,11 +24,9 @@ private:
     Q_DISABLE_COPY(MainWindow)
 
     QWK::WidgetWindowAgent* _window_agent;
-    StyleAgent& _style_agent;
     static QMap<Theme::ThemeMode, QString> _theme_files;
 
     void windowInit(const QString& title, const QIcon& icon);
-    void loadSettings();
     void loadThemeStyelSheet(Theme::ThemeMode theme);
     void UIWidgetInit();
     void connectInit();

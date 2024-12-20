@@ -145,6 +145,8 @@ void HotkeyLineEdit::registerGlobalHotkey()
             // 清空
             _key_sequence.clear();
             clear();
+        } else {
+            emit currentHotkeyChanged(_key_sequence);   // 发送信号，快捷键已更改
         }
     }
 }

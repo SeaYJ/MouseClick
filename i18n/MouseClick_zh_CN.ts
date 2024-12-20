@@ -32,32 +32,28 @@
         <translation>鼠标连点器</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="184"/>
         <source>WARNING</source>
-        <translation>警告</translation>
+        <translation type="vanished">警告</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="185"/>
         <source>The configuration file &apos;condig.ini&apos; was not found. The program may have been modified. It is recommended to reinstall the program, which may resolve this issue.</source>
-        <translation>配置文件“condig.ini”未找到。程序可能已被修改。建议重新安装程序，这可能解决此问题。</translation>
+        <translation type="vanished">配置文件“condig.ini”未找到。程序可能已被修改。建议重新安装程序，这可能解决此问题。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="187"/>
         <source>Ignore</source>
-        <translation>忽略</translation>
+        <translation type="vanished">忽略</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="188"/>
         <source>Reinstall</source>
-        <translation>重新安装</translation>
+        <translation type="vanished">重新安装</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="242"/>
+        <location filename="../src/mainwindow.cpp" line="208"/>
         <source>Mouse Click</source>
         <translation>鼠标连点</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="243"/>
+        <location filename="../src/mainwindow.cpp" line="209"/>
         <source>Settings</source>
         <translation>软件设置</translation>
     </message>
@@ -81,75 +77,98 @@
         <translation type="vanished">清除快捷键</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="61"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="62"/>
         <source>Click Type</source>
         <translation>点击类型</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="66"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="67"/>
         <source>Left Mouse Button</source>
         <translation>鼠标左键</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="67"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="68"/>
         <source>Right Mouse Button</source>
         <translation>鼠标右键</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="68"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="69"/>
         <source>Middle Mouse Button</source>
         <translation>鼠标中键</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="88"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="89"/>
         <source>Interval Time</source>
         <translation>间隔时间</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="117"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="118"/>
         <source>Random Start Interval</source>
         <translation>随机间隔时间</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="142"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="143"/>
         <source>Set Max Random Interval</source>
         <translation>最大随机时间</translation>
     </message>
 </context>
 <context>
+    <name>SettingsAgent</name>
+    <message>
+        <location filename="../src/modules/settingsagent.cpp" line="74"/>
+        <source>WARNING</source>
+        <translation type="unfinished">警告</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/settingsagent.cpp" line="75"/>
+        <source>The configuration file &apos;condig.ini&apos; was not found. The program may have been modified. It is recommended to reinstall the program, which may resolve this issue.</source>
+        <translation type="unfinished">配置文件“condig.ini”未找到。程序可能已被修改。建议重新安装程序，这可能解决此问题。</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/settingsagent.cpp" line="77"/>
+        <source>Ignore</source>
+        <translation type="unfinished">忽略</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/settingsagent.cpp" line="78"/>
+        <source>Reinstall</source>
+        <translation type="unfinished">重新安装</translation>
+    </message>
+</context>
+<context>
     <name>SettingsPage</name>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="68"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="70"/>
         <source>Start/End Hotkey</source>
         <translation>&quot;开始/结束&quot;快捷键</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="98"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="95"/>
         <source>Hotkey Clean</source>
         <translation>清除快捷键</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="114"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="111"/>
         <source>Dark Theme</source>
         <translation>深色模式</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="139"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="136"/>
         <source>Language</source>
         <translation>语言设置</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="144"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="141"/>
         <source>English(United States)</source>
         <translation>English(United States)</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="145"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="142"/>
         <source>Chinese(Simplified)</source>
         <translation>中文（简体）</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="146"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="143"/>
         <source>Chinese(Traditional)</source>
         <translation>中文（繁體）</translation>
     </message>

@@ -32,32 +32,28 @@
         <translation>MouseClick</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="184"/>
         <source>WARNING</source>
-        <translation>WARNING</translation>
+        <translation type="vanished">WARNING</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="185"/>
         <source>The configuration file &apos;condig.ini&apos; was not found. The program may have been modified. It is recommended to reinstall the program, which may resolve this issue.</source>
-        <translation>The configuration file &apos;condig.ini&apos; was not found. The program may have been modified. It is recommended to reinstall the program, which may resolve this issue.</translation>
+        <translation type="vanished">The configuration file &apos;condig.ini&apos; was not found. The program may have been modified. It is recommended to reinstall the program, which may resolve this issue.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="187"/>
         <source>Ignore</source>
-        <translation>Ignore</translation>
+        <translation type="vanished">Ignore</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="188"/>
         <source>Reinstall</source>
-        <translation>Reinstall</translation>
+        <translation type="vanished">Reinstall</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="242"/>
+        <location filename="../src/mainwindow.cpp" line="208"/>
         <source>Mouse Click</source>
         <translation>Mouse Click</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="243"/>
+        <location filename="../src/mainwindow.cpp" line="209"/>
         <source>Settings</source>
         <translation>Settings</translation>
     </message>
@@ -65,75 +61,98 @@
 <context>
     <name>MouseClickPage</name>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="61"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="62"/>
         <source>Click Type</source>
         <translation>Click Type</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="66"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="67"/>
         <source>Left Mouse Button</source>
         <translation>Left Mouse Button</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="67"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="68"/>
         <source>Right Mouse Button</source>
         <translation>Right Mouse Button</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="68"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="69"/>
         <source>Middle Mouse Button</source>
         <translation>Middle Mouse Button</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="88"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="89"/>
         <source>Interval Time</source>
         <translation>Interval Time</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="117"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="118"/>
         <source>Random Start Interval</source>
         <translation>Random Start Interval</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="142"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="143"/>
         <source>Set Max Random Interval</source>
         <translation>Set Max Random Interval</translation>
     </message>
 </context>
 <context>
+    <name>SettingsAgent</name>
+    <message>
+        <location filename="../src/modules/settingsagent.cpp" line="74"/>
+        <source>WARNING</source>
+        <translation type="unfinished">WARNING</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/settingsagent.cpp" line="75"/>
+        <source>The configuration file &apos;condig.ini&apos; was not found. The program may have been modified. It is recommended to reinstall the program, which may resolve this issue.</source>
+        <translation type="unfinished">The configuration file &apos;condig.ini&apos; was not found. The program may have been modified. It is recommended to reinstall the program, which may resolve this issue.</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/settingsagent.cpp" line="77"/>
+        <source>Ignore</source>
+        <translation type="unfinished">Ignore</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/settingsagent.cpp" line="78"/>
+        <source>Reinstall</source>
+        <translation type="unfinished">Reinstall</translation>
+    </message>
+</context>
+<context>
     <name>SettingsPage</name>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="68"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="70"/>
         <source>Start/End Hotkey</source>
         <translation>Start/End Hotkey</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="98"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="95"/>
         <source>Hotkey Clean</source>
         <translation>Hotkey Clean</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="114"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="111"/>
         <source>Dark Theme</source>
         <translation>Dark Theme</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="139"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="136"/>
         <source>Language</source>
         <translation>Language</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="144"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="141"/>
         <source>English(United States)</source>
         <translation>English(United States)</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="145"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="142"/>
         <source>Chinese(Simplified)</source>
         <translation>中文（简体）</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/settingspage.cpp" line="146"/>
+        <location filename="../src/modules/nav_pages/settingspage.cpp" line="143"/>
         <source>Chinese(Traditional)</source>
         <translation>中文（繁體）</translation>
     </message>

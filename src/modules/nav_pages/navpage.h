@@ -4,7 +4,7 @@
 #include <QPushButton>
 #include <QWidget>
 
-#include "../styleagent.h"
+#include "../shared.h"
 #include "../hotkeylineedit.h"
 #include "../../utils/clicker.h"
 
@@ -19,7 +19,6 @@ Q_SIGNALS:
     void ThemeChanged();
 
 protected:
-    StyleAgent& _style_agent;
     static QMap<Theme::ThemeMode, QString> _theme_files;
 
     static Clicker* _clicker;

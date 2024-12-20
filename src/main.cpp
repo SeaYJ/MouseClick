@@ -8,7 +8,7 @@
 #include <QSettings>
 #include <QFile>
 
-#include "./modules/languageagent.h"
+#include "modules/settingsagent.h"
 
 int main(int argc, char* argv[])
 {
@@ -19,9 +19,9 @@ int main(int argc, char* argv[])
     QApplication app(argc, argv);
 
     // 国际化
-    LanguageAgent& language_agent = LanguageAgent::instance();
+    SettingsAgent& app_settings = SettingsAgent::instance(); // 全局第一次初始化
     QTranslator translator;
-    const QString base_name = "MouseClick_" + language_agent.currentLanguage();
+    const QString base_name = "MouseClick_" + app_settings.Language();
     if (translator.load(":/i18n/" + base_name)) {
         app.installTranslator(&translator);
     }

@@ -11,6 +11,7 @@
 #include <QThread>
 
 #include "../../utils/clicker.h"
+#include "../settingsagent.h"
 
 QMap<Theme::ThemeMode, QString> MouseClickPage::_theme_files {
     {Theme::Light, (":/qss/modules/light-mouseclickpage.qss")},
@@ -20,7 +21,7 @@ QMap<Theme::ThemeMode, QString> MouseClickPage::_theme_files {
 MouseClickPage::MouseClickPage(const QString& title, SettingsPage& settings_page, QWidget* parent)
     : NavPage{parent}
 {
-    LoadThemeStyleSheet(_style_agent.currentTheme());
+    LoadThemeStyleSheet(SettingsAgent::instance().ThemeMode());
 
     QVBoxLayout* central_layout = new QVBoxLayout(this);
     central_layout->setSpacing(0);

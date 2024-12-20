@@ -5,7 +5,6 @@
 #include <QWidget>
 
 #include "navpage.h"
-#include "../styleagent.h"
 
 class SettingsPage : public NavPage
 {
@@ -19,7 +18,6 @@ public:
 private:
     Q_DISABLE_COPY(SettingsPage)
 
-    StyleAgent& _style_agent;
     static QMap<Theme::ThemeMode, QString> _theme_files;
     HotkeyLineEdit* _hotkey_reader;
     QPushButton* _hotkey_clean;

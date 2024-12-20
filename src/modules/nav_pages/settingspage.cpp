@@ -14,7 +14,8 @@
 #include <QSettings>
 
 #include "../hotkeylineedit.h"
-#include "../languageagent.h"
+#include "../settingsagent.h"
+#include "../shared.h"
 
 QMap<Theme::ThemeMode, QString> SettingsPage::_theme_files {
     {Theme::Light, (":/qss/modules/light-settingspage.qss")},
@@ -23,11 +24,12 @@ QMap<Theme::ThemeMode, QString> SettingsPage::_theme_files {
 
 SettingsPage::SettingsPage(const QString& title, QWidget* parent)
     : NavPage{parent},
-      _style_agent(StyleAgent::instance()),
       _hotkey_reader(nullptr),
       _hotkey_clean(nullptr)
 {
-    LoadThemeStyleSheet(_style_agent.currentTheme());
+    SettingsAgent& app_settings = SettingsAgent::instance();
+
+    LoadThemeStyleSheet(app_settings.ThemeMode());
 
     QVBoxLayout* central_layout = new QVBoxLayout(this);
     central_layout->setSpacing(0);
@@ -72,18 +74,13 @@ SettingsPage::SettingsPage(const QString& title, QWidget* parent)
     _hotkey_reader->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
 
     // 设置保存的快捷键（上一次使用）
-    QString settings_file_path = QCoreApplication::applicationDirPath() + "/config.ini";
-    QFile settings_file(settings_file_path);
-    QSettings settings(settings_file_path, QSettings::IniFormat);
-    settings.beginGroup("Settings");
-    const QString pre_hotkey = settings.value("Hotkey").toString();
+    const QString pre_hotkey = app_settings.Hotkey();
     if (pre_hotkey.isEmpty()) {
         _hotkey_reader->setHotkey("Ctrl+F2");   // 默认快捷键
     }
     else {
         _hotkey_reader->setHotkey(pre_hotkey);  // 上一次使用的快捷键
     }
-    settings.endGroup();
 
     hotkey_content_layout->addWidget(hotkey_desc);
     hotkey_content_layout->addWidget(_hotkey_reader);
@@ -116,7 +113,7 @@ SettingsPage::SettingsPage(const QString& title, QWidget* parent)
     QRadioButton* theme_toggle_btn = new QRadioButton(theme_toggle_content);
     theme_toggle_btn->setObjectName(QStringLiteral("theme-toggle-btn"));
     theme_toggle_btn->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
-    theme_toggle_btn->setChecked(static_cast<bool>(_style_agent.currentTheme()));
+    theme_toggle_btn->setChecked(static_cast<bool>(app_settings.ThemeMode()));
 
     theme_toggle_content_layout->addWidget(theme_toggle_desc);
     theme_toggle_content_layout->addWidget(theme_toggle_btn);
@@ -146,8 +143,7 @@ SettingsPage::SettingsPage(const QString& title, QWidget* parent)
     language_list->addItem(tr("Chinese(Traditional)"), QVariant("zh_TW"));
 
     // 确定当前的语言
-    LanguageAgent& language_agent = LanguageAgent::instance();
-    QString current_language = language_agent.currentLanguage();
+    QString current_language = app_settings.Language();
 
     // 遍历 QComboBox 项目，找到对应的选项并设置为选中状态
     for (int i = 0; i < language_list->count(); ++i) {
@@ -182,7 +178,8 @@ SettingsPage::SettingsPage(const QString& title, QWidget* parent)
     });
 
     connect(theme_toggle_btn, &QRadioButton::toggled, this, [this](bool checked) {
-        _style_agent.setCurrentTheme(static_cast<Theme::ThemeMode>(checked));
+        auto theme_mode = static_cast<Theme::ThemeMode>(checked);
+        SettingsAgent::instance().setThemeMode(theme_mode);
     });
 
     connect(_hotkey_reader, &HotkeyLineEdit::hotkeyActivated, this, [=]() {
@@ -195,33 +192,26 @@ SettingsPage::SettingsPage(const QString& title, QWidget* parent)
         }
     });
 
+    connect(_hotkey_reader, &HotkeyLineEdit::currentHotkeyChanged, this, [](const QString& hotkey) {
+        SettingsAgent::instance().setHotkey(hotkey);
+    });
+
     connect(language_list, &QComboBox::currentIndexChanged, this, [=](int index) {
-        LanguageAgent& language_agent = LanguageAgent::instance();  // 必须重新获取才能使用接口
+        SettingsAgent& app_settings = SettingsAgent::instance();  // 必须重新获取才能使用接口
         QString selected_language = language_list->itemData(index).toString();
 
         // 判断选择的语言是否和当前语言相同，不同则进行切换
-        if (selected_language != language_agent.currentLanguage()) {
-            language_agent.setCurrentLanguage(selected_language);
+        if (selected_language != app_settings.Language()) {
+            app_settings.setLanguage(selected_language);
 
             // 重新启动应用程序以应用新语言
-            QCoreApplication::exit(0);
-            QStringList args = QCoreApplication::arguments();
-            QProcess::startDetached(QCoreApplication::applicationFilePath(), args);
+            restartApplication();
         }
     });
 }
 
 SettingsPage::~SettingsPage()
 {
-    QString settings_file_path = QCoreApplication::applicationDirPath() + "/config.ini";
-    QSettings settings(settings_file_path, QSettings::IniFormat);
-
-    settings.beginGroup("Settings");
-    settings.setValue("Hotkey", _hotkey_reader->getHotkey());
-    settings.endGroup();
-
-    /************************/
-
     delete _hotkey_reader;
     delete _hotkey_clean;
 }
