@@ -108,7 +108,7 @@ void HotkeyLineEdit::keyReleaseEvent(QKeyEvent* event)
 void HotkeyLineEdit::registerGlobalHotkey()
 {
 #ifdef QT_DEBUG
-    qDebug() << "[HotkeyLineEdit]_key_sequence = " << _key_sequence;
+    qDebug() << "[HotkeyLineEdit]<registerGlobalHotkey>_key_sequence = " << _key_sequence << Qt::endl;
 #endif
 
     unregisterGlobalHotkey(); // 先注销之前的快捷键

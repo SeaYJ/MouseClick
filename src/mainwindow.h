@@ -20,6 +20,12 @@ public:
     explicit MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
+protected:
+    bool event(QEvent *event) override;
+
+signals:
+    void windowStateChanged(Qt::WindowStates newState);
+
 private:
     Q_DISABLE_COPY(MainWindow)
 

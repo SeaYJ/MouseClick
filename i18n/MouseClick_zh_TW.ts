@@ -32,22 +32,6 @@
         <translation>滑鼠連點器</translation>
     </message>
     <message>
-        <source>WARNING</source>
-        <translation type="vanished">警告</translation>
-    </message>
-    <message>
-        <source>The configuration file &apos;condig.ini&apos; was not found. The program may have been modified. It is recommended to reinstall the program, which may resolve this issue.</source>
-        <translation type="vanished">配置檔「condig.ini」未找到。程式可能已被修改。建議重新安裝程式，這可能解決此問題。</translation>
-    </message>
-    <message>
-        <source>Ignore</source>
-        <translation type="vanished">忽略</translation>
-    </message>
-    <message>
-        <source>Reinstall</source>
-        <translation type="vanished">重新安裝</translation>
-    </message>
-    <message>
         <location filename="../src/mainwindow.cpp" line="208"/>
         <source>Mouse Click</source>
         <translation>滑鼠連點</translation>
@@ -61,62 +45,67 @@
 <context>
     <name>MouseClickPage</name>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="62"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="64"/>
         <source>Click Type</source>
         <translation>點擊類型</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="67"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="69"/>
         <source>Left Mouse Button</source>
         <translation>滑鼠左鍵</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="68"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="70"/>
         <source>Right Mouse Button</source>
         <translation>滑鼠右鍵</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="69"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="71"/>
         <source>Middle Mouse Button</source>
         <translation>滑鼠中鍵</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="89"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="92"/>
         <source>Interval Time</source>
         <translation>間隔時間</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="118"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="121"/>
         <source>Random Start Interval</source>
         <translation>隨機間隔時間</translation>
     </message>
     <message>
-        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="143"/>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="146"/>
         <source>Set Max Random Interval</source>
         <translation>最大隨機時間</translation>
+    </message>
+    <message>
+        <location filename="../src/modules/nav_pages/mouseclickpage.cpp" line="176"/>
+        <source>Memory Configuration</source>
+        <translation>記住配置參數</translation>
     </message>
 </context>
 <context>
     <name>SettingsAgent</name>
     <message>
-        <location filename="../src/modules/settingsagent.cpp" line="74"/>
+        <location filename="../src/modules/settingsagent.cpp" line="124"/>
         <source>WARNING</source>
-        <translation type="unfinished">警告</translation>
+        <translation>警告</translation>
     </message>
     <message>
-        <location filename="../src/modules/settingsagent.cpp" line="75"/>
+        <location filename="../src/modules/settingsagent.cpp" line="125"/>
         <source>The configuration file &apos;condig.ini&apos; was not found. The program may have been modified. It is recommended to reinstall the program, which may resolve this issue.</source>
-        <translation type="unfinished">配置檔「condig.ini」未找到。程式可能已被修改。建議重新安裝程式，這可能解決此問題。</translation>
+        <translation>配置檔「condig.ini」未找到。程式可能已被修改。建議重新安裝程式，這可能解決此問題。</translation>
     </message>
     <message>
-        <location filename="../src/modules/settingsagent.cpp" line="77"/>
+        <location filename="../src/modules/settingsagent.cpp" line="127"/>
         <source>Ignore</source>
-        <translation type="unfinished">忽略</translation>
+        <translation>忽略</translation>
     </message>
     <message>
-        <location filename="../src/modules/settingsagent.cpp" line="78"/>
+        <location filename="../src/modules/settingsagent.cpp" line="128"/>
         <source>Reinstall</source>
-        <translation type="unfinished">重新安裝</translation>
+        <translation>重新安裝</translation>
     </message>
 </context>
 <context>

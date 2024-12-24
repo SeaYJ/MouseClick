@@ -260,7 +260,17 @@ void MainWindow::UIWidgetInit()
 void MainWindow::connectInit()
 {
     connect(&SettingsAgent::instance(), &SettingsAgent::currentThemeChanged, this, &MainWindow::loadThemeStyelSheet);
+    connect(this, &MainWindow::windowStateChanged, &SettingsAgent::instance(), &SettingsAgent::setWindowState);
 }
 
 MainWindow::~MainWindow()
 {}
+
+bool MainWindow::event(QEvent *event)
+{
+    if (event->type() == QEvent::WindowStateChange) {
+        Qt::WindowStates newState = windowState();
+        emit windowStateChanged(newState);
+    }
+    return QWidget::event(event); // 保留其他事件处理
+}

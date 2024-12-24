@@ -10,25 +10,28 @@
 
 ## 简体中文
 
-![软件运行截图](./docs/screenshots/SeaEpoch_2024-10-10_15-56-05.jpg)
-![软件运行截图](./docs/screenshots/SeaEpoch_2024-10-10_16-04-27.jpg)
+![软件运行截图](./docs/screenshots/SeaEpoch_2024-12-24_22-35-32.jpg)
+![软件运行截图](./docs/screenshots/SeaEpoch_2024-12-24_22-36-07.jpg)
 
 ## 繁体中文
 
-![软件运行截图](./docs/screenshots/SeaEpoch_2024-10-10_17-41-01.jpg)
+![软件运行截图](./docs/screenshots/SeaEpoch_2024-12-24_22-36-48.jpg)
 
 ## English
 
-![软件运行截图](./docs/screenshots/SeaEpoch_2024-10-10_17-42-32.jpg)
+![软件运行截图](./docs/screenshots/SeaEpoch_2024-12-24_22-37-07.jpg)
 
-# 📋 项目计划
+# 🧱 软件功能
 
 - [x] ~~V1 NULL~~
 - [x] V2 功能
-  - [x] Mouse Click
+  - [x] 鼠标连点
+    - [x] 普通连点(等间隔时间)
+    - [x] 随件间隔时间
+    - [x] 记忆配置参数
   - [ ] ~~Mouse Record~~
   - [ ] ~~Mouse Macro~~
-  - [x] Settings
+  - [x] 软件设置
     - [x] 全局快捷键设置
     - [x] 黑夜模式
     - [x] 语言切换
@@ -48,9 +51,9 @@
 # 🧤 编译项目
 
 1. 首先先克隆本项目：
-```cmd
-git clone git@github.com:SeaYJ/MouseClick.git
-```
+    ```cmd
+    git clone git@github.com:SeaYJ/MouseClick.git
+    ```
 2. 直接编译即可。
 
 # 🛒 打包项目

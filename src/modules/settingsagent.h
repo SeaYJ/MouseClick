@@ -19,13 +19,30 @@ public:
     void setThemeMode(Theme::ThemeMode& theme_mode);
 
     Qt::WindowStates WindowState() const;
-    void setWindowSate(Qt::WindowStates& window_state);
+    void setWindowState(Qt::WindowStates window_state);
 
     QString Hotkey() const;
     void setHotkey(const QString& hotkey);
 
     QString Language() const;
     void setLanguage(const QString& language);
+
+    // ------------- //
+
+    int ClickType() const;
+    void setClickType(const int type);
+
+    double IntervalTime() const;
+    void setIntervalTime(const double interval_time);
+
+    bool EnableRandomInterval() const;
+    void setEnableRandomInterval(bool enable_random_interval);
+
+    double RandomIntervalTime() const;
+    void setRandomIntervalTime(const double random_interval_time);
+
+    bool EnableMemoryConfiguration() const;
+    void setEnableMemoryConfiguration(bool memory_configuration);
     /***********************************/
 
 signals:
@@ -43,17 +60,23 @@ private:
     // 配置文件完整文件路径
     QString _settings_file_path;
 
-    // 默认主题设置
-    const Theme::ThemeMode _DEFAULT_THEMEMODE = Theme::Light;
-
-    // 默认语言设置
-    const QString _DEFAULT_LANGUAGE = "en_US";
     // 支持语言列表
     const QStringList _language_support_list = {
         "en_US",
         "zh_CN",
         "zh_TW"
     };
+
+    // 默认值
+    const Theme::ThemeMode _DEFAULT_THEMEMODE = Theme::Light;   // 默认主题设置
+    const Qt::WindowStates _DEFAULT_WINDOWSTATE = Qt::WindowNoState;
+    const QString _DEFAULT_LANGUAGE = "en_US";                  // 默认语言设置
+    const QString _DEFAULT_HOTKEY = "Ctrl+F2";
+    const int _DEFAULT_CLICKTYPE = 0;
+    const double _DEFAULT_INTERVALTIME = 0.01;
+    const bool _DEFAULT_RANDOMINTERVAL = false;
+    const double _DEFAULT_RANDOMINTERVALTIME = 0.02;
+    const bool _DEFAULT_MEMORYCONFIGURATION = false;
 };
 
 #endif // SETTINGSAGENT_H
